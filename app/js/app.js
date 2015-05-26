@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('Social Network', ['ngRoute', 'ngResource']);
+var app = angular.module('Social Network', ['ngRoute']);
 
 app.config(function($routeProvider) {
     $routeProvider.when('/', {

@@ -7,10 +7,28 @@ form .row label{
     height: 200px;
 }
 
-#userInfoAndImg {
+#userInfo {
     padding: 5px;
 }
 
-#userInfoAndImg img{
+#userInfo img{
     height: 100px;
+}
+
+#coverImagePreview {
+    width: 250px;
+    height: 120px;
+}
+
+#profileImagePreview {
+    width: 100px;
+    height: 100px;
+}
+
+#imagesSelection > div {
+    padding: 5px;
+}
+
+input[type=file] {
+    display: none;
 }

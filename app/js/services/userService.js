@@ -17,7 +17,23 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         });
     };
 
+    function editProfile(editData, success) {
+        var request = {
+            method: 'PUT',
+            url: baseServiceUrl + 'me',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            },
+            data: editData
+        };
+
+        $http(request).success(success).error(function (err) {
+            console.log(err);
+        });
+    }
+
     return {
-        getLoggedUserData : getLoggedUserData
+        getLoggedUserData : getLoggedUserData,
+        editProfile : editProfile
     }
 });
