@@ -17,6 +17,18 @@ app.config(function($routeProvider) {
         templateUrl: 'partials/guest/register.html',
         controller: 'RegisterController'
     });
+
+    $routeProvider.when('/user/wall', {
+        templateUrl: 'partials/user/myWall.html',
+        controller: 'MyWallController'
+    });
+
+    $routeProvider.when('/user/profile', {
+        templateUrl: 'partials/user/profile.html',
+        controller: 'MyProfileController'
+    });
 });
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api/');
+app.constant('defaultCoverImageUrl', 'img/DefaultCoverImage.jpg');
+app.constant('defaultProfileImageUrl', 'img/DefaultProfileImage.jpg');

@@ -5,13 +5,14 @@
     </ul>
 
     <ul class="nav" ng-if="isLogged()">
-        <li><a href="#">Wall</a></li>
-        <li><a href="#">Profile</a></li>
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/user/wall">My Wall</a></li>
+        <li><a href="#/user/profile">My Profile</a></li>
         <li><a href="#/" ng-click="logout()">Logout</a></li>
     </ul>
 
 </div>
 
 <div class="thumbnail" ng-if="isLogged()">
-    <h1>My Friends</h1>
+    <h4><a href="#/">Friends</a></h4>
 </div>

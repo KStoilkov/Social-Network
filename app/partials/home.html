@@ -1,4 +1,7 @@
-<!-- TODO : If the user is logged show his page, else login -->
-<div>
-    <h1>Welcome Home</h1>
+<div class="text-center" ng-if="!isLogged()" ng-include="'partials/guest/home.html'">
+
+</div>
+
+<div ng-if="isLogged()">
+
 </div>

@@ -2,3 +2,15 @@ form .row label{
     margin-top: 5px;
     text-align: right;
 }
+
+#coverImg img{
+    height: 200px;
+}
+
+#userInfoAndImg {
+    padding: 5px;
+}
+
+#userInfoAndImg img{
+    height: 100px;
+}

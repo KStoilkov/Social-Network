@@ -1,0 +1,33 @@
+<div class="row text-center" id="coverImg">
+    <img class="img-rounded col-lg-12" src="{{user.coverImageData || defaultCoverImage}}"/>
+</div>
+<div class="row" id="userInfoAndImg">
+    <img class="img-rounded col-xs-2 col-xs-offset-2" src="{{user.profileImageData || defaultProfileImage}}"/>
+    <div class="col-xs-6 col-xs-offset-2">
+        <table class="table table-bordered">
+            <tr>
+                <td>Username</td>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{user.name}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{user.gender}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<!--TODO: Check if this profile is yours-->
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success pull-right">Edit Profile</button>
+    </div>
+</div>

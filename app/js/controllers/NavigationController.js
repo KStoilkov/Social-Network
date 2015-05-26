@@ -1,9 +1,11 @@
 'use strict';
 
-app.controller('NavigationController', function ($scope, $location, authService) {
+app.controller('NavigationController', function ($scope, $location, authService, userService) {
     $scope.isLogged = function () {
         return authService.isLogged();
     };
+
+    checkIfUserIsLogged();
 
     $scope.$on('LoginSuccessfully', function () {
         getUserData();
@@ -19,8 +21,14 @@ app.controller('NavigationController', function ($scope, $location, authService)
     };
 
     function getUserData() {
-        authService.getLoggedUserData(function (data) {
+        userService.getLoggedUserData(function (data) {
             $scope.user = data;
         })
-    }
+    };
+
+    function checkIfUserIsLogged() {
+        if ($scope.isLogged()){
+            getUserData();
+        }
+    };
 });

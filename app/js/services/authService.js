@@ -32,22 +32,6 @@ app.factory('authService', function ($http, $location, baseServiceUrl) {
         return sessionStorage['Authorization'] !== undefined;
     };
 
-    function getLoggedUserData(success) {
-        var request = {
-            method: 'GET',
-            headers: {
-                'Authorization': getUserAuthorization()
-            },
-            url: baseServiceUrl + 'me'
-        };
-
-        $http(request).success(function (data) {
-            success(data)
-        }).error(function (err) {
-            console.log(err);
-        });
-    };
-
     function getUserAuthorization () {
         if(sessionStorage['Authorization']) {
             var obj = JSON.parse(sessionStorage['Authorization']),
@@ -61,6 +45,6 @@ app.factory('authService', function ($http, $location, baseServiceUrl) {
         logout : logout,
         register : register,
         isLogged : isLogged,
-        getLoggedUserData : getLoggedUserData
+        getUserAuthorization : getUserAuthorization
     }
 });
