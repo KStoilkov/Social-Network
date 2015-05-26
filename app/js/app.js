@@ -27,6 +27,11 @@ app.config(function($routeProvider) {
         templateUrl: 'partials/user/profile.html',
         controller: 'MyProfileController'
     });
+
+    $routeProvider.when('/user/profile/edit-profile', {
+        templateUrl: 'partials/user/edit-profile.html',
+        controller: 'EditProfileController'
+    });
 });
 
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api/');

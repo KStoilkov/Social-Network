@@ -1,0 +1,47 @@
+<div class="row text-center">
+    <h4>Edit Profile</h4>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <label for="username">Username</label>
+                </td>
+                <td>
+                    <input type="text" value="{{user.username}}" class="form-control" id="username"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="name">Name</label>
+                </td>
+                <td>
+                    <input type="text" value="{{user.name}}" class="form-control" id="name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="email">Email</label>
+                </td>
+                <td>
+                    <input type="text" value="{{user.email}}" class="form-control" id="email"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    <label><input type="radio" name="gender" value="male"/>Male</label>
+                    <label><input type="radio" name="gender" value="female"/>Female</label>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <button class="btn btn-success">Submit</button>
+    </div>
+</div>
