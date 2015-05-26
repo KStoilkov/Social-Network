@@ -5,28 +5,34 @@
     <div class="row form-group">
         <label for="username" class="col-xs-4">Username: </label>
         <span class="col-xs-5">
-            <input type="text" id="username" class="form-control"/>
+            <input type="text" id="username" class="form-control" ng-model="registerData.username"/>
+        </span>
+    </div>
+    <div class="row form-group">
+        <label for="name" class="col-xs-4">Name: </label>
+        <span class="col-xs-5">
+            <input type="text" id="name" class="form-control" ng-model="registerData.name"/>
         </span>
     </div>
     <div class="row form-group">
         <label for="email" class="col-xs-4">Email: </label>
         <span class="col-xs-5">
-            <input type="email" id="email" class="form-control"/>
+            <input type="email" id="email" class="form-control" ng-model="registerData.email"/>
         </span>
     </div>
     <div class="row form-group">
         <label for="password" class="col-xs-4">Password: </label>
         <span class="col-xs-5">
-            <input type="password" id="password" class="form-control"/>
+            <input type="password" id="password" class="form-control" ng-model="registerData.password"/>
         </span>
     </div>
     <div class="row form-group">
         <label for="confirmPassword" class="col-xs-4">Confirm Password: </label>
         <span class="col-xs-5">
-            <input type="password" id="confirmPassword" class="form-control"/>
+            <input type="password" id="confirmPassword" class="form-control" ng-model="registerData.confirmPassword"/>
         </span>
     </div>
     <div class="row form-group text-center">
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary" ng-click="register(registerData)">Submit</button>
     </div>
 </form>

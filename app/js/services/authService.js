@@ -18,6 +18,16 @@ app.factory('authService', function ($http, $location, baseServiceUrl) {
         delete sessionStorage['Authorization'];
     };
 
+    function register(registerData, success, error) {
+        var request = {
+            method: 'POST',
+            url: baseServiceUrl + 'users/register',
+            data: registerData
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     function isLogged() {
         return sessionStorage['Authorization'] !== undefined;
     };
@@ -48,7 +58,8 @@ app.factory('authService', function ($http, $location, baseServiceUrl) {
 
     return {
         login : login,
-        logout: logout,
+        logout : logout,
+        register : register,
         isLogged : isLogged,
         getLoggedUserData : getLoggedUserData
     }

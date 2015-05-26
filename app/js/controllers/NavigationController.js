@@ -9,6 +9,10 @@ app.controller('NavigationController', function ($scope, $location, authService)
         getUserData();
     });
 
+    $scope.$on('RegisterSuccessfully', function () {
+        getUserData();
+    });
+
     $scope.logout = function () {
         authService.logout();
         $location.path('/');

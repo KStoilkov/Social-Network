@@ -1,9 +1,7 @@
 <nav  class="navbar navbar-default navbar-static-top">
     <div class="container" ng-controller="NavigationController">
         <ul class="nav navbar-nav" ng-if="!isLogged()">
-            <!-- TODO: Show User picture and user name + search bar -->
-            <li><a href="#">Image</a></li>
-            <li><a href="#">Username</a></li>
+            <li><a href="#/">Hello Stranger</a></li>
         </ul>
 
         <ul class="nav navbar-nav" ng-if="isLogged()">
