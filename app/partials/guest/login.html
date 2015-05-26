@@ -1,0 +1,20 @@
+<form role="form">
+    <div class="row text-center form-group">
+        <h1>Login</h1>
+    </div>
+    <div class="row form-group">
+        <label for="username" class="col-xs-4">Username: </label>
+        <span class="col-xs-5">
+            <input type="text" id="username" class="form-control" ng-model="userData.username"/>
+        </span>
+    </div>
+    <div class="row form-group">
+        <label for="password" class="col-xs-4">Password: </label>
+        <span class="col-xs-5">
+            <input type="password" id="password" class="form-control" ng-model="userData.password"/>
+        </span>
+    </div>
+    <div class="row form-group text-center">
+        <button class="btn btn-primary" ng-click="login(userData)">Submit</button>
+    </div>
+</form>
