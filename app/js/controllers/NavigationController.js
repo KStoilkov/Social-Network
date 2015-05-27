@@ -1,34 +1,39 @@
 'use strict';
 
-app.controller('NavigationController', function ($scope, $location, authService, userService) {
-    $scope.isLogged = function () {
-        return authService.isLogged();
-    };
+app.controller('NavigationController',
+    function ($scope, $location, authService, userService, defaultProfileImageUrl) {
 
-    checkIfUserIsLogged();
+        $scope.defaultProfileImage = defaultProfileImageUrl;
 
-    $scope.$on('LoginSuccessfully', function () {
-        getUserData();
-    });
+        $scope.isLogged = function () {
+            return authService.isLogged();
+        };
 
-    $scope.$on('RegisterSuccessfully', function () {
-        getUserData();
-    });
+        checkIfUserIsLogged();
 
-    $scope.logout = function () {
-        authService.logout();
-        $location.path('/');
-    };
-
-    function getUserData() {
-        userService.getLoggedUserData(function (data) {
-            $scope.user = data;
-        })
-    };
-
-    function checkIfUserIsLogged() {
-        if ($scope.isLogged()){
+        $scope.$on('LoginSuccessfully', function () {
             getUserData();
-        }
-    };
+        });
+
+        $scope.$on('RegisterSuccessfully', function () {
+            getUserData();
+        });
+
+        $scope.logout = function () {
+            authService.logout();
+            alertify.success('Logout successful');
+            $location.path('/');
+        };
+
+        function getUserData() {
+            userService.getLoggedUserData(function (data) {
+                $scope.user = data;
+            })
+        };
+
+        function checkIfUserIsLogged() {
+            if ($scope.isLogged()){
+                getUserData();
+            }
+        };
 });

@@ -13,7 +13,7 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         $http(request).success(function (data) {
             success(data)
         }).error(function (err) {
-            console.log(err);
+            console.error(err.error_description);
         });
     };
 
@@ -28,7 +28,7 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         };
 
         $http(request).success(success).error(function (err) {
-            console.log(err);
+            alertify.error(err.error_description);
         });
     }
 
@@ -43,7 +43,7 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         };
 
         $http(request).success(success).error(function (err) {
-            console.log(err);
+            alertify.error(err.error_description);
         });
     }
 

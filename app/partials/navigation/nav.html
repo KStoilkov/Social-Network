@@ -6,7 +6,7 @@
 
         <ul class="nav navbar-nav" ng-if="isLogged()" id="topNavBar">
             <li>
-                <a href="#/user/profile"><img ng-src="{{user.profileImageData}}" class="img-circle" id="topNavProfileImage"/>
+                <a href="#/user/profile"><img ng-src="{{user.profileImageData || defaultProfileImage}}" class="img-circle" id="topNavProfileImage"/>
                     {{user.username}}
                 </a>
             </li>

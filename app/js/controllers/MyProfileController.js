@@ -16,7 +16,7 @@ app.controller('MyProfileController',
                 }
 
             }, function (err) {
-                console.log(err);
+                console.error(err.error_description);
             });
         }
 

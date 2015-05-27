@@ -25,17 +25,20 @@ app.controller('EditProfileController',
         };
 
         $scope.editProfile = function (editData) {
-            if($scope.coverImage) {
-                editData.coverImageData = $scope.coverImage;
-            }
+            alertify.confirm('Are you sure?', function (responce) {
+                if($scope.coverImage) {
+                    editData.coverImageData = $scope.coverImage;
+                }
 
-            if($scope.profileImage) {
-                editData.profileImageData = $scope.profileImage;
-            }
+                if($scope.profileImage) {
+                    editData.profileImageData = $scope.profileImage;
+                }
 
-            userService.editProfile(editData, function () {
-                $location.path('/user/profile');
-            })
+                userService.editProfile(editData, function () {
+                    alertify.success('Profile edited successfully');
+                    $location.path('/user/profile');
+                })
+            });
         };
 
         function getUserData () {
@@ -48,4 +51,4 @@ app.controller('EditProfileController',
         $scope.defaultCoverImage = defaultCoverImageUrl;
         $scope.defaultProfileImage = defaultProfileImageUrl;
 
-    });
+});

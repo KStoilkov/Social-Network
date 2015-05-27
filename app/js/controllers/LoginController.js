@@ -6,9 +6,11 @@ app.controller('LoginController', function ($rootScope, $scope, $location, authS
     $scope.login = function (userData) {
         authService.login(userData, function (data) {
             $location.path('/');
-            $rootScope.$broadcast('LoginSuccessfully')
+            alertify.success('Login Successful');
+            $rootScope.$broadcast('LoginSuccessfully');
         }, function (err) {
-            console.error('Logged Failed', err);
+            console.log(err);
+            alertify.error(err.error_description);
         });
     };
 
