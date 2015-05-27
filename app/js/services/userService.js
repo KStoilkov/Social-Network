@@ -32,8 +32,24 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         });
     }
 
+    function changePassword(newPasswordData, success) {
+        var request = {
+            method: 'PUT',
+            url: baseServiceUrl + 'me/changepassword',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            },
+            data: newPasswordData
+        };
+
+        $http(request).success(success).error(function (err) {
+            console.log(err);
+        });
+    }
+
     return {
         getLoggedUserData : getLoggedUserData,
-        editProfile : editProfile
+        editProfile : editProfile,
+        changePassword : changePassword
     }
 });
