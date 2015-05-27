@@ -4,13 +4,17 @@
             <li><a href="#/">Hello Stranger</a></li>
         </ul>
 
-        <ul class="nav navbar-nav" ng-if="isLogged()">
-            <li><a href="#">{{user.username}}</a></li>
+        <ul class="nav navbar-nav" ng-if="isLogged()" id="topNavBar">
+            <li>
+                <a href="#/user/profile"><img ng-src="{{user.profileImageData}}" class="img-circle" id="topNavProfileImage"/>
+                    {{user.username}}
+                </a>
+            </li>
         </ul>
 
         <form class="navbar-form navbar-right">
             <div class="input-group">
-                <input type="text" role="search" class="form-control"/>
+                <input type="search" role="search" class="form-control"/>
             <span class="input-group-btn">
                 <button class="btn btn-default" type="submit">
                     <span class="glyphicon glyphicon-search"></span>

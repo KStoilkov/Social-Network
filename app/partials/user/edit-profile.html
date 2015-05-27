@@ -18,8 +18,8 @@
                     <input type="text" class="form-control" id="email" ng-model="editData.email"/>
                 </div>
                 <div class="form-group">
-                    <label><input type="radio" name="gender" value="male" id="gender"/>Male</label>
-                    <label><input type="radio" name="gender" value="female"/>Female</label>
+                    <label class="btn btn-default"><input type="radio" name="gender" value="1" id="gender" ng-checked="user.gender === 1" ng-model="editData.gender"/>Male</label>
+                    <label class="btn btn-default"><input type="radio" name="gender" value="2" ng-checked="user.gender === 2" ng-model="editData.gender"/>Female</label>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                         <input type="button" class="btn btn-primary" value="Browse" onclick="$('#coverImage').click()"/>
                     </div>
                     <div class="col-xs-8">
-                        <img ng-src="{{coverImage || defaultCoverImage}}" id="coverImagePreview"/>
+                        <img ng-src="{{coverImage || user.coverImageData || defaultCoverImage}}" id="coverImagePreview"/>
                     </div>
                 </div>
                 <div class="row thumbnail">
@@ -41,7 +41,7 @@
                         <input type="button" class="btn btn-primary" value="Browse" onclick="$('#profileImage').click()"/>
                     </div>
                     <div class="col-xs-8 text-center">
-                        <img ng-src="{{profileImage || defaultProfileImage}}" id="profileImagePreview"/>
+                        <img ng-src="{{profileImage || user.profileImageData|| defaultProfileImage}}" id="profileImagePreview"/>
                     </div>
                 </div>
             </div>
@@ -52,40 +52,5 @@
                 </div>
             </div>
         </form>
-        <!--<table class="table table-bordered">-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<label for="username">Username</label>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input type="text" value="{{user.username}}" class="form-control" id="username"/>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<label for="name">Name</label>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input type="text" value="{{user.name}}" class="form-control" id="name"/>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--<label for="email">Email</label>-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<input type="text" value="{{user.email}}" class="form-control" id="email"/>-->
-                <!--</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td>-->
-                    <!--Gender-->
-                <!--</td>-->
-                <!--<td>-->
-                    <!--<label><input type="radio" name="gender" value="male"/>Male</label>-->
-                    <!--<label><input type="radio" name="gender" value="female"/>Female</label>-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
     </div>
 </div>

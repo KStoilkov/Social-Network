@@ -3,8 +3,7 @@
 app.controller('EditProfileController',
     function ($scope, $location, userService, defaultCoverImageUrl, defaultProfileImageUrl) {
 
-        $scope.defaultCoverImage = defaultCoverImageUrl;
-        $scope.defaultProfileImage = defaultProfileImageUrl;
+        getUserData();
 
         $scope.fileSelected = function(fileInput, imgType) {
             var file = fileInput.files[0];
@@ -26,6 +25,14 @@ app.controller('EditProfileController',
         };
 
         $scope.editProfile = function (editData) {
+            if($scope.coverImage) {
+                editData.coverImageData = $scope.coverImage;
+            }
+
+            if($scope.profileImage) {
+                editData.profileImageData = $scope.profileImage;
+            }
+
             userService.editProfile(editData, function () {
                 $location.path('/user/profile');
             })
@@ -38,5 +45,7 @@ app.controller('EditProfileController',
             });
         };
 
-        getUserData();
-});
+        $scope.defaultCoverImage = defaultCoverImageUrl;
+        $scope.defaultProfileImage = defaultProfileImageUrl;
+
+    });
