@@ -44,3 +44,8 @@ input[type=file] {
     height: 40px;
     margin-right: 10px;
 }
+
+#addPostField {
+    resize: none;
+    box-shadow: 0 0 2px #4c4cff;
+}

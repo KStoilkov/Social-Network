@@ -18,8 +18,8 @@ app.config(function($routeProvider) {
         controller: 'RegisterController'
     });
 
-    $routeProvider.when('/user/wall', {
-        templateUrl: 'partials/user/myWall.html',
+    $routeProvider.when('/user/:username', {
+        templateUrl: 'partials/user/user-wall.html',
         controller: 'MyWallController'
     });
 
@@ -36,6 +36,10 @@ app.config(function($routeProvider) {
     $routeProvider.when('/user/change-password', {
         templateUrl: 'partials/user/change-password.html',
         controller: 'ChangePasswordController'
+    });
+
+    $routeProvider.otherwise({
+        redirectTo: '/'
     });
 });
 
