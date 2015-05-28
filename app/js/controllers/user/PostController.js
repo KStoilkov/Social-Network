@@ -1,15 +1,19 @@
 'use strict';
 
 app.controller('PostController', function ($scope, $rootScope, $routeParams,postService) {
+    $scope.currentUserUsername = $routeParams.username;
+
     $scope.postData = {
-        username : $routeParams.username
+        username : $routeParams.username,
+        postContent: ''
     };
 
     $scope.addPost = function (postData) {
         postService.addPost(
             postData,
-            function (data) {
-                console.log('Post success');
+            function () {
+                $scope.postData.postContent = '';
+                reloadPosts();
             },
             function (err) {
                 console.log(err);
@@ -20,10 +24,10 @@ app.controller('PostController', function ($scope, $rootScope, $routeParams,post
         postService.likePost(
             postId,
             function () {
-                $rootScope.$broadcast('PostLikedUnliked');
+                reloadPosts();
             },
             function (err) {
-                console.error(err.error_description);
+                console.error(err);
                 alertify.error('Failed to like post');
             }
         );
@@ -33,11 +37,15 @@ app.controller('PostController', function ($scope, $rootScope, $routeParams,post
         postService.unlikePost(
             postId,
             function () {
-                $rootScope.$broadcast('PostLikedUnliked');
+                reloadPosts();
             },
             function (err) {
-                console.error(err.error_description);
+                console.error(err);
                 alertify.error('Failed to unlike post');
             })
-    }
+    };
+
+    function reloadPosts() {
+        $rootScope.$broadcast('PostAddedLikedUnliked');
+    };
 });

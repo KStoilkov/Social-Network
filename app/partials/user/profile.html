@@ -1,25 +1,25 @@
 <div class="row text-center" id="coverImg">
-    <img class="img-rounded col-sm-12" src="{{user.coverImageData || defaultCoverImage}}"/>
+    <img ng-src="{{currentUser.coverImageData || defaultCoverImage}}" class="img-rounded col-lg-12"/>
 </div>
-<div class="row" id="userInfo" ng-controller="MyProfileController">
-    <img class="img-rounded col-sm-3 col-xs-offset-1" ng-src="{{user.profileImageData || defaultProfileImage}}"/>
+<div class="row" id="userInfo">
+    <img class="img-rounded col-sm-3 col-xs-offset-1" ng-src="{{currentUser.profileImageData || defaultProfileImage}}"/>
     <div class="col-xs-6 col-xs-offset-1">
         <table class="table table-bordered">
             <tr>
                 <td>Username</td>
-                <td>{{user.username}}</td>
+                <td>{{currentUser.username}}</td>
             </tr>
             <tr>
                 <td>Name</td>
-                <td>{{user.name}}</td>
+                <td>{{currentUser.name}}</td>
             </tr>
-            <tr>
+            <tr ng-if="loggedUser.username === currentUser.username">
                 <td>Email</td>
-                <td>{{user.email}}</td>
+                <td>{{loggedUser.email}}</td>
             </tr>
             <tr>
                 <td>Gender</td>
-                <td>{{user.displayGender}}</td>
+                <td>{{currentUser.displayGender}}</td>
             </tr>
         </table>
     </div>

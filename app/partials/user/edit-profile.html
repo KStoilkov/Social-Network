@@ -18,8 +18,8 @@
                     <input type="text" class="form-control" id="email" ng-model="editData.email"/>
                 </div>
                 <div class="form-group">
-                    <label class="btn btn-default"><input type="radio" name="gender" value="1" id="gender" ng-checked="user.gender === 1" ng-model="editData.gender"/>Male</label>
-                    <label class="btn btn-default"><input type="radio" name="gender" value="2" ng-checked="user.gender === 2" ng-model="editData.gender"/>Female</label>
+                    <label class="btn btn-default"><input type="radio" name="gender" value="1" id="gender" ng-checked="loggedUser.gender === 1" ng-model="editData.gender"/>Male</label>
+                    <label class="btn btn-default"><input type="radio" name="gender" value="2" ng-checked="loggedUser.gender === 2" ng-model="editData.gender"/>Female</label>
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                         <input type="button" class="btn btn-primary" value="Browse" onclick="$('#coverImage').click()"/>
                     </div>
                     <div class="col-xs-8">
-                        <img ng-src="{{coverImage || user.coverImageData || defaultCoverImage}}" id="coverImagePreview"/>
+                        <img ng-src="{{coverImage || loggedUser.coverImageData || defaultCoverImage}}" id="coverImagePreview"/>
                     </div>
                 </div>
                 <div class="row thumbnail">
@@ -41,7 +41,7 @@
                         <input type="button" class="btn btn-primary" value="Browse" onclick="$('#profileImage').click()"/>
                     </div>
                     <div class="col-xs-8 text-center">
-                        <img ng-src="{{profileImage || user.profileImageData|| defaultProfileImage}}" id="profileImagePreview"/>
+                        <img ng-src="{{profileImage || loggedUser.profileImageData|| defaultProfileImage}}" id="profileImagePreview"/>
                     </div>
                 </div>
             </div>

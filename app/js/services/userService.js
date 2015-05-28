@@ -13,7 +13,7 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         $http(request).success(function (data) {
             success(data)
         }).error(function (err) {
-            console.error(err.error_description);
+            console.error(err);
         });
     };
 
@@ -28,9 +28,9 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         };
 
         $http(request).success(success).error(function (err) {
-            alertify.error(err.error_description);
+            console.log(err);
         });
-    }
+    };
 
     function changePassword(newPasswordData, success) {
         var request = {
@@ -43,13 +43,26 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         };
 
         $http(request).success(success).error(function (err) {
-            alertify.error(err.error_description);
+            alertify.error(err);
         });
-    }
+    };
+
+    function getUserFullData(username, success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'users/' + username,
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    };
 
     return {
         getLoggedUserData : getLoggedUserData,
         editProfile : editProfile,
-        changePassword : changePassword
+        changePassword : changePassword,
+        getUserFullData : getUserFullData
     }
 });

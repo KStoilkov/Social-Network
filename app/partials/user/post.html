@@ -1,4 +1,4 @@
-<div class="row thumbnail" ng-controller="PostController">
+<div class="row thumbnail">
     <div class="col-xs-3 thumbnail text-center" id="postAuthorDiv">
         <img ng-src="{{post.author.profileImageData}}" alt=""/>
         <h4>{{post.author.username}}</h4>
@@ -11,8 +11,10 @@
             </div>
             <div class="col-xs-12 text-right" id="postLikes">
                 <span>{{post.likesCount}}</span>
-                <button ng-if="!post.liked" class="btn btn-success glyphicon glyphicon-thumbs-up" ng-click="likePost(post.id)" title="Like"></button>
-                <button ng-if="post.liked" class="btn btn-warning glyphicon glyphicon-thumbs-down" ng-click="unlikePost(post.id)" title="Unlike"></button>
+                <span ng-if="post.author.isFriend || post.author.username == loggedUser.username">
+                    <button ng-if="!post.liked" class="btn btn-success glyphicon glyphicon-thumbs-up" ng-click="likePost(post.id)" title="Like"></button>
+                    <button ng-if="post.liked" class="btn btn-warning glyphicon glyphicon-thumbs-down" ng-click="unlikePost(post.id)" title="Unlike"></button>
+                </span>
             </div>
         </div>
     </div>

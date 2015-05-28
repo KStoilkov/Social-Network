@@ -6,8 +6,8 @@
 
         <ul class="nav navbar-nav" ng-if="isLogged()" id="topNavBar">
             <li>
-                <a href="#/user/profile"><img ng-src="{{user.profileImageData || defaultProfileImage}}" class="img-circle" id="topNavProfileImage"/>
-                    {{user.username}}
+                <a href="#/user/{{loggedUser.username}}"><img ng-src="{{loggedUser.profileImageData || defaultProfileImage}}" class="img-circle" id="topNavProfileImage"/>
+                    {{loggedUser.username}}
                 </a>
             </li>
         </ul>

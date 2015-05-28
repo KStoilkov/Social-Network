@@ -10,7 +10,7 @@ app.controller('RegisterController', function ($scope, $rootScope, $location, au
                 $location.path('/');
                 alertify.success('Registration successful');
                 sessionStorage['Authorization'] = JSON.stringify(data);
-                $rootScope.$broadcast('RegisterSuccessfully');
+                $rootScope.$broadcast('RegisterSuccessful');
                 $scope.registerData = {};
             },
             function (err) {

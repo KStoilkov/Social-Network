@@ -4,13 +4,13 @@ app.controller('LoginController', function ($rootScope, $scope, $location, authS
     $scope.userData = {};
 
     $scope.login = function (userData) {
-        authService.login(userData, function (data) {
+        authService.login(userData, function () {
             $location.path('/');
             alertify.success('Login Successful');
-            $rootScope.$broadcast('LoginSuccessfully');
+            $rootScope.$broadcast('LoginSuccessful');
         }, function (err) {
             console.log(err);
-            alertify.error(err.error_description);
+            alertify.error(err);
         });
     };
 
