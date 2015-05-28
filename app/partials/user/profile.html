@@ -13,13 +13,22 @@
                 <td>Name</td>
                 <td>{{currentUser.name}}</td>
             </tr>
+            <tr>
+                <td>Gender</td>
+                <td>{{currentUser.displayGender}}</td>
+            </tr>
             <tr ng-if="loggedUser.username === currentUser.username">
                 <td>Email</td>
                 <td>{{loggedUser.email}}</td>
             </tr>
-            <tr>
-                <td>Gender</td>
-                <td>{{currentUser.displayGender}}</td>
+            <tr ng-if="loggedUser.username !== currentUser.username">
+                <td colspan="2">
+                    <div ng-if="currentUser.isFriend" class="btn btn-primary disabled">Friend</div>
+                    <div ng-if="currentUser.hasPendingRequest && !currentUser.isFriends" class="btn btn-warning disabled">Pending</div>
+                    <button ng-if="!currentUser.isFriend && !currentUser.hasPendingRequest" class="btn btn-success" ng-click="sendFriendRequest(currentUser.username)">
+                        Send friend request
+                    </button>
+                </td>
             </tr>
         </table>
     </div>

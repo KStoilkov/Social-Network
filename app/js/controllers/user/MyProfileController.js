@@ -1,12 +1,16 @@
 'use strict';
 
 app.controller('MyProfileController',
-    function ($scope, $routeParams, userService, defaultCoverImageUrl, defaultProfileImageUrl) {
+    function ($scope, $routeParams, $rootScope, userService, friendsService, defaultCoverImageUrl, defaultProfileImageUrl) {
 
         $scope.defaultCoverImage = defaultCoverImageUrl;
         $scope.defaultProfileImage = defaultProfileImageUrl;
 
-        function getUserFullData(username) {
+        $scope.$on('FriendRequestSend', function () {
+            getCurrentUserFullData($routeParams.username)
+        });
+
+        function getCurrentUserFullData(username) {
             userService.getUserFullData(
                 username,
                 function (data) {
@@ -27,5 +31,18 @@ app.controller('MyProfileController',
             );
         };
 
-        getUserFullData($routeParams.username);
+        $scope.sendFriendRequest = function (username) {
+            friendsService.sendFriendRequest(
+                username,
+                function () {
+                    $rootScope.$broadcast('FriendRequestSend');
+                    alertify.success('Send request to ' + username + ' send successfully!');
+                },
+                function (err) {
+                    alertify.error('Failed to send friend request');
+                }
+            );
+        };
+
+        getCurrentUserFullData($routeParams.username);
 });
