@@ -15,5 +15,4 @@ app.controller('PostController', function ($scope, postService) {
                 console.log(err);
             });
     };
-
 });

@@ -14,7 +14,20 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
        $http(request).success(success).error(error);
    };
 
+    function getWallPosts(username, startPostId, pageSize, success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'users/' + username + '/wall?StartPostId=' + (startPostId || '') + '&PageSize=' + pageSize,
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    };
+
     return {
-        addPost : addPost
+        addPost : addPost,
+        getWallPosts : getWallPosts
     }
 });

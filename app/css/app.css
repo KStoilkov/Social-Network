@@ -49,3 +49,19 @@ input[type=file] {
     resize: none;
     box-shadow: 0 0 2px #4c4cff;
 }
+
+#post {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+#postContent {
+    height: 125px;
+}
+
+#postContent > div{
+    width: 100%;
+    height: 100%;
+    word-wrap: break-word;
+    overflow:auto;
+}
