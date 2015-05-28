@@ -6,9 +6,18 @@ app.controller('MyProfileController',
         $scope.defaultCoverImage = defaultCoverImageUrl;
         $scope.defaultProfileImage = defaultProfileImageUrl;
 
-        $scope.$on('FriendRequestSend', function () {
-            getCurrentUserFullData($routeParams.username)
-        });
+        $scope.sendFriendRequest = function (username) {
+            friendsService.sendFriendRequest(
+                username,
+                function () {
+                    $rootScope.$broadcast('FriendRequestSend');
+                    alertify.success('Send request to ' + username + ' send successfully!');
+                },
+                function (err) {
+                    alertify.error('Failed to send friend request');
+                }
+            );
+        };
 
         function getCurrentUserFullData(username) {
             userService.getUserFullData(
@@ -27,19 +36,6 @@ app.controller('MyProfileController',
                 },
                 function (err) {
                     console.log(err);
-                }
-            );
-        };
-
-        $scope.sendFriendRequest = function (username) {
-            friendsService.sendFriendRequest(
-                username,
-                function () {
-                    $rootScope.$broadcast('FriendRequestSend');
-                    alertify.success('Send request to ' + username + ' send successfully!');
-                },
-                function (err) {
-                    alertify.error('Failed to send friend request');
                 }
             );
         };

@@ -1,9 +1,42 @@
 'use strict';
 
 app.controller('AppController', function ($scope, $rootScope, authService, userService) {
+    var mousePosX, mousePosY;
+
+    $(document).mousemove(function(e) {
+        mousePosX = e.pageX;
+        mousePosY = e.pageY;
+    });
+
+    $scope.mousePosX = mousePosX;
+    $scope.mousePosY = mousePosY;
+
+    $scope.getUserPreview = function (username) {
+        userService.getUserPreview(
+            username,
+            function (data) {
+                $scope.userPreviewData = data;
+            },
+            function (err) {
+                console.log(err);
+            });
+    };
+
     $scope.isLogged = function () {
         return authService.isLogged();
     };
+
+    $scope.$on('LoginSuccessful', function () {
+        getLoggedUserData();
+    });
+
+    $scope.$on('RegisterSuccessful', function () {
+        getLoggedUserData();
+    });
+
+    $scope.$on('ProfileEdited', function () {
+        getLoggedUserData();
+    });
 
     function getLoggedUserData() {
         if($scope.isLogged()) {
@@ -21,18 +54,6 @@ app.controller('AppController', function ($scope, $rootScope, authService, userS
             });
         }
     };
-
-    $scope.$on('LoginSuccessful', function () {
-        getLoggedUserData();
-    });
-
-    $scope.$on('RegisterSuccessful', function () {
-        getLoggedUserData();
-    });
-
-    $scope.$on('ProfileEdited', function () {
-        getLoggedUserData();
-    })
 
     getLoggedUserData();
 });

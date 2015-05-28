@@ -59,10 +59,23 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         $http(request).success(success).error(error);
     };
 
+    function getUserPreview(username, success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'users/' + username + '/preview',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     return {
         getLoggedUserData : getLoggedUserData,
         editProfile : editProfile,
         changePassword : changePassword,
-        getUserFullData : getUserFullData
+        getUserFullData : getUserFullData,
+        getUserPreview : getUserPreview
     }
 });

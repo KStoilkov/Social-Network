@@ -15,13 +15,16 @@
 </div>
 
 <div class="thumbnail" ng-if="isLogged()">
-    <ul class="nav navbar-btn">
+    <ul class="nav navbar-form">
         <li><a href="#/" class="text-center">Friends</a></li>
-        <li ng-repeat="friend in ownFriends" class="">
-            <a href="#/" class="text-center">
+        <li ng-repeat="friend in ownFriends">
+            <a href="#/user/{{friend.username}}" class="text-center">
                 <img ng-src="{{friend.profileImageData || defaultProfileImage}}" id="friendsBoxImage"/>
                 <span><strong>{{friend.username}}</strong></span>
             </a>
+            <div class="friendPreview" ng-include="'partials/user/friendPreview.html'" showhideonhover>
+
+            </div>
         </li>
     </ul>
 </div>
