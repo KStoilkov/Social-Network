@@ -5,13 +5,12 @@ app.controller('LoginController', function ($rootScope, $scope, $location, authS
 
     $scope.login = function (userData) {
         authService.login(userData, function () {
+            $rootScope.$broadcast('LoginSuccessful');
             $location.path('/');
             alertify.success('Login Successful');
-            $rootScope.$broadcast('LoginSuccessful');
         }, function (err) {
             console.log(err);
             alertify.error(err);
         });
     };
-
 });

@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('EditProfileController',
-    function ($scope, $location, userService, defaultCoverImageUrl, defaultProfileImageUrl) {
+    function ($scope, $location, $rootScope, userService, defaultCoverImageUrl, defaultProfileImageUrl) {
 
         getUserDataForEditing();
 
@@ -40,6 +40,7 @@ app.controller('EditProfileController',
 
                     userService.editProfile(editData, function () {
                         alertify.success('Profile edited successfully');
+                        $rootScope.$broadcast('ProfileEdited');
                         $location.path('/user/' + $scope.loggedUser.username);
                     })
                 }

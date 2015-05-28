@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('AppController', function ($scope, authService, userService) {
+app.controller('AppController', function ($scope, $rootScope, authService, userService) {
     $scope.isLogged = function () {
         return authService.isLogged();
     };
@@ -15,20 +15,24 @@ app.controller('AppController', function ($scope, authService, userService) {
                 } else if ($scope.loggedUser.gender === 2) {
                     $scope.loggedUser.displayGender = 'Female';
                 } else {
-                    $scope.currentUser.displayGender = 'Unknown'
+                    $scope.loggedUser.displayGender = 'Unknown'
                 }
 
             });
         }
     };
 
-    $scope.$on('LoginSuccessfully', function () {
+    $scope.$on('LoginSuccessful', function () {
         getLoggedUserData();
     });
 
     $scope.$on('RegisterSuccessful', function () {
         getLoggedUserData();
     });
+
+    $scope.$on('ProfileEdited', function () {
+        getLoggedUserData();
+    })
 
     getLoggedUserData();
 });

@@ -18,5 +18,4 @@ app.controller('RegisterController', function ($scope, $rootScope, $location, au
             }
         );
     };
-
 });
