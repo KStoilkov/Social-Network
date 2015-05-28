@@ -5,20 +5,24 @@ app.controller('NavigationController',
 
         $scope.defaultProfileImage = defaultProfileImageUrl;
 
-        $scope.getOwnFriends = function () {
-            friendsService.getOwnFriends(
-                function (data) {
-                    $scope.ownFriends = data;
-                },
-                function (err) {
-                    console.log(err);
-                }
-            );
-        };
-
         $scope.logout = function () {
             authService.logout();
             alertify.success('Logout successful');
             $location.path('/');
         };
+
+        function getOwnFriends() {
+            if ($scope.isLogged()) {
+                friendsService.getOwnFriends(
+                    function (data) {
+                        $scope.ownFriends = data;
+                    },
+                    function (err) {
+                        console.log(err);
+                    }
+                );
+            }
+        };
+
+        getOwnFriends();
 });

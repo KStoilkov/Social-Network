@@ -78,3 +78,7 @@ input[type=file] {
     vertical-align: middle;
     margin-left: 5px;
 }
+
+#friendsBoxImage {
+    width: 50%;
+}

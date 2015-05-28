@@ -25,7 +25,7 @@ app.factory('friendsService', function ($http, authService, baseServiceUrl) {
         $http(request).success(success).error(error);
     };
 
-    function getOwnFriends(success) {
+    function getOwnFriends(success, error) {
         var request = {
             method : 'GET',
             url: baseServiceUrl + 'me/friends',
