@@ -1,14 +1,14 @@
 <div class="thumbnail">
     <ul class="nav" ng-if="!isLogged()">
-        <li><a href="#/login">Login</a></li>
-        <li><a href="#/register">Register</a></li>
+        <li><a href="#/login/">Login</a></li>
+        <li><a href="#/register/">Register</a></li>
     </ul>
 
     <ul class="nav" ng-if="isLogged()">
         <li><a href="#/">Home</a></li>
-        <li><a href="#/user/{{user.username}}">My Wall</a></li>
-        <li><a href="#/user/profile">My Profile</a></li>
-        <li><a href="#/user/change-password">Change Password</a></li>
+        <li><a href="#/user/{{user.username}}/">My Wall</a></li>
+        <li><a href="#/profile/">Edit Profile</a></li>
+        <li><a href="#/changepassword/">Change Password</a></li>
         <li><a href="#/" ng-click="logout()">Logout</a></li>
     </ul>
 

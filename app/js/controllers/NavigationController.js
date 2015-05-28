@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('NavigationController',
-    function ($scope, $location, authService, userService, defaultProfileImageUrl) {
+    function ($scope, $location, $routeParams, authService, userService, defaultProfileImageUrl) {
 
         $scope.defaultProfileImage = defaultProfileImageUrl;
 

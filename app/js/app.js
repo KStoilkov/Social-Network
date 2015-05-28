@@ -8,32 +8,27 @@ app.config(function($routeProvider) {
         controller: 'HomeController'
     });
 
-    $routeProvider.when('/login', {
+    $routeProvider.when('/login/', {
         templateUrl: 'partials/guest/login.html',
         controller: 'LoginController'
     });
 
-    $routeProvider.when('/register', {
+    $routeProvider.when('/register/', {
         templateUrl: 'partials/guest/register.html',
         controller: 'RegisterController'
     });
 
-    $routeProvider.when('/user/:username', {
+    $routeProvider.when('/user/:username/', {
         templateUrl: 'partials/user/user-wall.html',
         controller: 'MyWallController'
     });
 
-    $routeProvider.when('/user/profile', {
-        templateUrl: 'partials/user/profile.html',
-        controller: 'MyProfileController'
-    });
-
-    $routeProvider.when('/user/profile/edit-profile', {
+    $routeProvider.when('/profile/', {
         templateUrl: 'partials/user/edit-profile.html',
         controller: 'EditProfileController'
     });
 
-    $routeProvider.when('/user/change-password', {
+    $routeProvider.when('/changepassword/', {
         templateUrl: 'partials/user/change-password.html',
         controller: 'ChangePasswordController'
     });

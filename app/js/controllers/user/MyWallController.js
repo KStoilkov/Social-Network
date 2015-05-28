@@ -1,13 +1,12 @@
 'use strict';
 
-app.controller('MyWallController', function ($scope, friendsService) {
-    //$scope.friendsPosts = [];
-    //
-    //$scope.getFriendsPosts = function () {
-    //    friendsService.getFriendsPosts(function (data) {
-    //        $scope.friendsPosts = data;
-    //    });
-    //};
-    //
-    //$scope.getFriendsPosts();
+app.controller('MyWallController', function ($scope, friendsService, userService) {
+
+    function getUserData () {
+        userService.getLoggedUserData(function (data) {
+            $scope.user = data;
+        });
+    };
+
+    getUserData();
 });

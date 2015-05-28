@@ -37,7 +37,7 @@ app.controller('EditProfileController',
 
                     userService.editProfile(editData, function () {
                         alertify.success('Profile edited successfully');
-                        $location.path('/user/profile');
+                        $location.path('/user/{{user.username}}');
                     })
                 }
             });
