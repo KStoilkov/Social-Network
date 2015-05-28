@@ -4,7 +4,6 @@ app.controller('MyWallController', function ($scope, $routeParams, friendsServic
 
     getUserData();
 
-
     $scope.getWallPosts = function (username) {
         postService.getWallPosts(
             username,
@@ -25,4 +24,8 @@ app.controller('MyWallController', function ($scope, $routeParams, friendsServic
             $scope.user = data;
         });
     };
+
+    $scope.$on('PostLikedUnliked', function () {
+        $scope.getWallPosts($routeParams.username)
+    });
 });
