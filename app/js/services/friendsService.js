@@ -49,10 +49,36 @@ app.factory('friendsService', function ($http, authService, baseServiceUrl) {
         $http(request).success(success).error(error);
     }
 
+    function approveFriendRequest(friendRequestId, success, error) {
+        var request = {
+            method: 'PUT',
+            url: baseServiceUrl + 'me/requests/' + friendRequestId + '?status=approved',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
+    function rejectFriendRequest(friendRequestId, success, error) {
+        var request = {
+            method: 'PUT',
+            url: baseServiceUrl + 'me/requests/' + friendRequestId + '?status=rejected',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     return {
         getFriendsPosts : getFriendsPosts,
         sendFriendRequest : sendFriendRequest,
         getOwnFriends : getOwnFriends,
-        getFriendRequests : getFriendRequests
+        getFriendRequests : getFriendRequests,
+        approveFriendRequest : approveFriendRequest,
+        rejectFriendRequest : rejectFriendRequest
     }
 });

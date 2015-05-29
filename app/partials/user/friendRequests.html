@@ -1,10 +1,10 @@
 <li ng-repeat="friendRequest in friendRequests" class="friendRequest">
-    <a href="#/user/{{friendRequest.user.username}}">
+    <a href="#/user/{{friendRequest.user.username}}" class="text-center">
         <img ng-src="{{friendRequest.user.profileImageData || defaultProfileImage}}"/>
         <h5>{{friendRequest.user.username}}</h5>
     </a>
     <div class="text-center">
-        <button class="btn btn-success btn-xs">Confirm</button>
-        <button class="btn btn-danger btn-xs">Delete</button>
+        <button class="btn btn-success btn-xs" ng-click="approveFriendRequest(friendRequest.id)">Confirm</button>
+        <button class="btn btn-danger btn-xs" ng-click="rejectFriendRequest(friendRequest.id)">Delete</button>
     </div>
 </li>

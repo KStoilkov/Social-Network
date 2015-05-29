@@ -10,7 +10,7 @@ app.controller('LoginController', function ($rootScope, $scope, $location, authS
             alertify.success('Login Successful');
         }, function (err) {
             console.log(err);
-            alertify.error(err);
+            alertify.error(err.error_description);
         });
     };
 });
