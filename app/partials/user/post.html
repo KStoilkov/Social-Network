@@ -1,7 +1,15 @@
 <div class="row thumbnail">
     <div class="col-xs-3 thumbnail text-center" id="postAuthorDiv">
-        <img ng-src="{{post.author.profileImageData}}" alt=""/>
-        <h4>{{post.author.username}}</h4>
+        <a href="#/user/{{post.author.username}}" class="btn-link">
+            <img ng-src="{{post.author.profileImageData}}" alt=""/>
+            <h4>{{post.author.username}}</h4>
+            <div class="userPreviewDiv"
+                    ng-include="'partials/user/userPreview.html'"
+                    ng-init="getUserPreview(post.author.username)"
+                    showhideonhover>
+
+            </div>
+        </a>
         <p>{{post.date | date}}</p>
     </div>
     <div class="col-xs-8 col-xs-offset-1" id="postContentDiv">
@@ -12,7 +20,9 @@
             <div class="col-sm-8 text-right" id="postLikes">
                 <ul ng-init="getPostDetailedLikes(post.id)" class="likes text-left">
                     <li ng-repeat="user in userLikes" class="inline">
-                        <a href="#/user/{{user}}/">{{user}}</a>
+                        <a href="#/user/{{user}}/">
+                            {{user}}
+                        </a>
                     </li>
                     <li class="inline" ng-if="postDetailedLikes.length > 0">
                         and

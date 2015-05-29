@@ -1,6 +1,6 @@
 'use strict';
 
-app.controller('PostController', function ($scope, $rootScope, $routeParams,postService) {
+app.controller('PostController', function ($scope, $rootScope, $routeParams, postService, userService) {
     $scope.currentUserUsername = $routeParams.username;
 
     $scope.postData = {
@@ -63,6 +63,20 @@ app.controller('PostController', function ($scope, $rootScope, $routeParams,post
             },
             function (err) {
                 console.log(error);
+            }
+        );
+    };
+
+    $scope.getUserPreview = function(username) {
+        $scope.previewUser = {};
+
+        userService.getUserPreview(
+            username,
+            function (data) {
+                $scope.previewUser = data;
+            },
+            function (err) {
+                console.log(err);
             }
         );
     };

@@ -149,3 +149,31 @@ input[type=file] {
 .postDetailedLikesList li a{
     padding: 5px;
 }
+
+.userPreviewBox {
+    width: 150px;
+    height: 100px;
+    margin: 0;
+}
+
+.userPreviewBox > button {
+    width: 120px;
+    height: 20px;
+}
+
+.userPreviewBox > div {
+    width: 120px;
+    height: 20px;
+}
+
+.userPreviewDiv {
+    display: none;
+    position: absolute;
+    top: -80px;
+    left: +130px;
+    background-color: #FFF;
+    -webkit-box-shadow: 0 0 3px #AAA;
+    -moz-box-shadow: 0 0 3px #AAA;
+    box-shadow: 0 0 3px #AAA;
+    z-index: 10;
+}
