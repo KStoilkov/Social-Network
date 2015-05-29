@@ -185,3 +185,19 @@ input[type=file] {
 .friendRequest img{
     width: 30%;
 }
+
+.friendsRequestsCount {
+    position: absolute;
+    background-color: #D83526;
+    color: #FFFFFF;
+    width: 55%;
+    height: 55%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    font-size: 10px;
+    vertical-align: top;
+    left: 15px;
+    top: 15px;
+
+}

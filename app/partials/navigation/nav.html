@@ -19,7 +19,9 @@
                    role="button"
                    aria-expanded="false"
                    class="dropdown-toggle glyphicon glyphicon-user btn navbar-btn">
-
+                    <span class="friendsRequestsCount" ng-if="friendRequests.length > 0">
+                        {{friendRequests.length}}
+                    </span>
                 </a>
 
                 <ul ng-include="'partials/user/friendRequests.html'"
