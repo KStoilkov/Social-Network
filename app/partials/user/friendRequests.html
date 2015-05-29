@@ -8,3 +8,6 @@
         <button class="btn btn-danger btn-xs" ng-click="rejectFriendRequest(friendRequest.id)">Delete</button>
     </div>
 </li>
+<li ng-if="friendRequests.length === 0" class="text-center text-info">
+    No friend requests!
+</li>

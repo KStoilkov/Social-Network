@@ -33,6 +33,11 @@ app.config(function($routeProvider) {
         controller: 'ChangePasswordController'
     });
 
+    $routeProvider.when('/friends/', {
+        templateUrl: 'partials/user/friendlist.html',
+        controller: 'NavigationController'
+    });
+
     $routeProvider.otherwise({
         redirectTo: '/'
     });
@@ -41,3 +46,5 @@ app.config(function($routeProvider) {
 app.constant('baseServiceUrl', 'http://softuni-social-network.azurewebsites.net/api/');
 app.constant('defaultCoverImageUrl', 'img/DefaultCoverImage.jpg');
 app.constant('defaultProfileImageUrl', 'img/DefaultProfileImage.jpg');
+app.constant('defaultStartPostId', 0);
+app.constant('defaultPageSize', 5);

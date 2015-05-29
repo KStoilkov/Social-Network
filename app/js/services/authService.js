@@ -26,7 +26,7 @@ app.factory('authService', function ($http, $location, baseServiceUrl) {
         };
 
         $http(request).success(success).error(error);
-    }
+    };
 
     function isLogged() {
         return sessionStorage['Authorization'] !== undefined;

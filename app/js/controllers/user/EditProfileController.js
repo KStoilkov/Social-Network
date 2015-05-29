@@ -48,8 +48,6 @@ app.controller('EditProfileController',
         };
 
         function getUserDataForEditing () {
-            userService.getLoggedUserData(function (data) {
-                $scope.editData = data;
-            });
+            $scope.editData = angular.copy($scope.loggedUser);
         };
 });

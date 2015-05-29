@@ -16,7 +16,7 @@
 
 <div class="thumbnail" ng-if="isLogged()">
     <ul class="nav navbar-form">
-        <li><a href="#/" class="text-center">Friends</a></li>
+        <li><a href="#/friends" class="text-center" title="{{ownFriends.length}} total">Friends</a></li>
         <li ng-repeat="friend in ownFriends">
             <a href="#/user/{{friend.username}}" class="text-center">
                 <img ng-src="{{friend.profileImageData || defaultProfileImage}}" id="friendsBoxImage"/>

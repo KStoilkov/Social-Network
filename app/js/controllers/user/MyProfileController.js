@@ -21,24 +21,29 @@ app.controller('MyProfileController',
         };
 
         function getCurrentUserFullData(username) {
-            userService.getUserFullData(
-                username,
-                function (data) {
-                    $scope.currentUser = data;
+            if (username === $scope.loggedUser.username) {
+                $scope.currentUser = $scope.loggedUser;
+            } else {
+                userService.getUserFullData(
+                    username,
+                    function (data) {
+                        $scope.currentUser = data;
 
-                    if($scope.currentUser.gender === 1) {
-                        $scope.currentUser.displayGender = 'Male';
-                    } else if ($scope.currentUser.gender === 2) {
-                        $scope.currentUser.displayGender = 'Female';
-                    } else {
-                        $scope.currentUser.displayGender = 'Unknown'
+                        if($scope.currentUser.gender === 1) {
+                            $scope.currentUser.displayGender = 'Male';
+                        } else if ($scope.currentUser.gender === 2) {
+                            $scope.currentUser.displayGender = 'Female';
+                        } else {
+                            $scope.currentUser.displayGender = 'Unknown'
+                        }
+
+                    },
+                    function (err) {
+                        console.log(err);
                     }
+                )
+            }
 
-                },
-                function (err) {
-                    console.log(err);
-                }
-            );
         };
 
         getCurrentUserFullData($routeParams.username);

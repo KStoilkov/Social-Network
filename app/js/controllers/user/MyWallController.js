@@ -1,12 +1,13 @@
 'use strict';
 
-app.controller('MyWallController', function ($scope, $routeParams, friendsService, userService, postService) {
+app.controller('MyWallController',
+    function ($scope, $routeParams, friendsService, userService, postService, defaultStartPostId, defaultPageSize) {
 
     $scope.getWallPosts = function (username) {
         postService.getWallPosts(
             username,
-            0,
-            5,
+            defaultStartPostId,
+            defaultPageSize,
             function (data) {
                 $scope.posts = data;
             },

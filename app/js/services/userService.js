@@ -69,6 +69,18 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         };
 
         $http(request).success(success).error(error);
+    };
+
+    function getNewsFeed (startPostId, pageSize, success, error){
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'me/feed/?StartPostId=' + (startPostId || '') + '&PageSize=' + pageSize,
+            headers : {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
     }
 
     return {
@@ -76,6 +88,7 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         editProfile : editProfile,
         changePassword : changePassword,
         getUserFullData : getUserFullData,
-        getUserPreview : getUserPreview
+        getUserPreview : getUserPreview,
+        getNewsFeed : getNewsFeed
     }
 });

@@ -3,5 +3,10 @@
 </div>
 
 <div ng-if="isLogged()">
+    <div ng-include="'partials/user/add-post.html'">
 
+    </div>
+    <div ng-controller="PostController" ng-include="'partials/user/post.html'" ng-repeat="post in newsFeed">
+
+    </div>
 </div>
