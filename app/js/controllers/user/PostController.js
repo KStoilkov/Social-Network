@@ -45,6 +45,28 @@ app.controller('PostController', function ($scope, $rootScope, $routeParams,post
             })
     };
 
+    $scope.getPostDetailedLikes = function(postId) {
+        postService.getPostDetailedLikes(
+            postId,
+            function (data) {
+                $scope.userLikes = [];
+                $scope.postDetailedLikes = [];
+
+                data.forEach(function (postLike) {
+
+                    if ($scope.userLikes.length < 3) {
+                        $scope.userLikes.push(postLike.user.username);
+                    } else {
+                        $scope.postDetailedLikes.push(postLike.user.username);
+                    }
+                })
+            },
+            function (err) {
+                console.log(error);
+            }
+        );
+    };
+
     function reloadPosts() {
         $rootScope.$broadcast('PostAddedLikedUnliked');
     };

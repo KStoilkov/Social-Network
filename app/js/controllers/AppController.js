@@ -1,16 +1,6 @@
 'use strict';
 
 app.controller('AppController', function ($scope, $rootScope, authService, userService) {
-    var mousePosX, mousePosY;
-
-    $(document).mousemove(function(e) {
-        mousePosX = e.pageX;
-        mousePosY = e.pageY;
-    });
-
-    $scope.mousePosX = mousePosX;
-    $scope.mousePosY = mousePosY;
-
     $scope.getUserPreview = function (username) {
         userService.getUserPreview(
             username,

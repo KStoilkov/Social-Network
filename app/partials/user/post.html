@@ -9,8 +9,28 @@
             <div class="col-xs-12 thumbnail" id="postContent">
                 <div>{{post.postContent}}</div>
             </div>
-            <div class="col-xs-12 text-right" id="postLikes">
-                <span>{{post.likesCount}}</span>
+            <div class="col-sm-8 text-right" id="postLikes">
+                <ul ng-init="getPostDetailedLikes(post.id)" class="likes text-left">
+                    <li ng-repeat="user in userLikes" class="inline">
+                        <a href="#/user/{{user}}/">{{user}}</a>
+                    </li>
+                    <li class="inline" ng-if="postDetailedLikes.length > 0">
+                        and
+                            <span class="btn-link">
+                                {{postDetailedLikes.length}} more
+                                <ul class="nav postDetailedLikesList" showhideonhover>
+                                    <li ng-repeat="userLike in postDetailedLikes">
+                                        <a href="#/user/{{userLike}}/">
+                                            {{userLike}}
+                                        </a>
+                                    </li>
+                                </ul>
+                            </span>
+                    </li>
+                    <li class="inline" ng-if="userLikes.length > 0"> Likes this</li>
+                </ul>
+            </div>
+            <div class="col-xs-4 text-right">
                 <span ng-if="post.author.isFriend || post.author.username == loggedUser.username">
                     <button ng-if="!post.liked" class="btn btn-success glyphicon glyphicon-thumbs-up" ng-click="likePost(post.id)" title="Like"></button>
                     <button ng-if="post.liked" class="btn btn-warning glyphicon glyphicon-thumbs-down" ng-click="unlikePost(post.id)" title="Unlike"></button>

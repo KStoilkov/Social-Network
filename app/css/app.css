@@ -75,8 +75,15 @@ input[type=file] {
 }
 
 #postLikes > * {
-    vertical-align: middle;
-    margin-left: 5px;
+    vertical-align: bottom;
+}
+
+#postLikes {
+    margin-top: 10px;
+}
+
+#postLikes ul li {
+    margin-right: 15px;
 }
 
 #friendsBoxImage {
@@ -107,4 +114,38 @@ input[type=file] {
 
 .userPreviewImage {
     width: 30px;
+}
+
+.inline {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.likes {
+    margin: 0;
+    padding: 0;
+}
+
+.postDetailedLikesList {
+    display: none;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    top: -25px;
+    left: 180px;
+    box-shadow: 0 0 3px #000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.postDetailedLikesList li{
+    width: 120px;
+    height: 30px;
+}
+
+.postDetailedLikesList li a{
+    padding: 5px;
 }

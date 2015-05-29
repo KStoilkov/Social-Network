@@ -50,10 +50,23 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
         $http(request).success(success).error(error);
     };
 
+    function getPostDetailedLikes (postId, success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'Posts/' + postId + '/likes',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     return {
         addPost : addPost,
         getWallPosts : getWallPosts,
         likePost : likePost,
-        unlikePost: unlikePost
+        unlikePost: unlikePost,
+        getPostDetailedLikes : getPostDetailedLikes
     }
 });
