@@ -6,9 +6,27 @@
 
         <ul class="nav navbar-nav" ng-if="isLogged()" id="topNavBar">
             <li>
-                <a href="#/user/{{loggedUser.username}}"><img ng-src="{{loggedUser.profileImageData || defaultProfileImage}}" class="img-circle" id="topNavProfileImage"/>
+                <a href="#/user/{{loggedUser.username}}">
+                    <img ng-src="{{loggedUser.profileImageData || defaultProfileImage}}"
+                         class="img-circle"
+                         id="topNavProfileImage"/>
                     {{loggedUser.username}}
                 </a>
+            </li>
+            <li class="dropdown" ng-controller="FriendsController">
+                <a href="#"
+                   data-toggle="dropdown"
+                   role="button"
+                   aria-expanded="false"
+                   class="dropdown-toggle glyphicon glyphicon-user btn navbar-btn">
+
+                </a>
+
+                <ul ng-include="'partials/user/friendRequests.html'"
+                    class="dropdown-menu"
+                    role="menu">
+
+                </ul>
             </li>
         </ul>
 

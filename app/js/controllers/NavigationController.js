@@ -11,6 +11,8 @@ app.controller('NavigationController',
             $location.path('/');
         };
 
+        $scope.getFriendRequests
+
         $scope.$on('LoginSuccessful', function () {
             getOwnFriends();
         });

@@ -37,9 +37,22 @@ app.factory('friendsService', function ($http, authService, baseServiceUrl) {
         $http(request).success(success).error(error);
     };
 
+    function getFriendRequests(success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'me/requests',
+            headers: {
+                'Authorization' : authService.getUserAuthorization(0)
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     return {
         getFriendsPosts : getFriendsPosts,
         sendFriendRequest : sendFriendRequest,
-        getOwnFriends : getOwnFriends
+        getOwnFriends : getOwnFriends,
+        getFriendRequests : getFriendRequests
     }
 });

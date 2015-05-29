@@ -10,7 +10,8 @@ app.controller('MyProfileController',
             friendsService.sendFriendRequest(
                 username,
                 function () {
-                    $rootScope.$broadcast('FriendRequestSend');
+                    $rootScope.$broadcast('FriendRequestSend', username);
+                    getCurrentUserFullData(username)
                     alertify.success('Send request to ' + username + ' send successfully!');
                 },
                 function (err) {
