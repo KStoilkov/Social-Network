@@ -62,11 +62,24 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
         $http(request).success(success).error(error);
     }
 
+    function deletePost(postId, success, error) {
+        var request = {
+            method: 'DELETE',
+            url: baseServiceUrl + 'Posts/' + postId,
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    };
+
     return {
         addPost : addPost,
         getWallPosts : getWallPosts,
         likePost : likePost,
         unlikePost: unlikePost,
-        getPostDetailedLikes : getPostDetailedLikes
+        getPostDetailedLikes : getPostDetailedLikes,
+        deletePost : deletePost
     }
 });

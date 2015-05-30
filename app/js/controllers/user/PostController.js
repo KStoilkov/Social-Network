@@ -84,6 +84,22 @@ app.controller('PostController',
             );
         };
 
+        $scope.deletePost = function (postId) {
+            alertify.confirm('Are you sure you want to delete this post?', function (responce) {
+                if(responce) {
+                    postService.deletePost(
+                        postId,
+                        function () {
+                            alertify.success('Post deleted');
+                        },
+                        function (err) {
+                            console.log(err);
+                        }
+                    );
+                }
+            });
+        };
+
         function reloadPosts() {
             $rootScope.$broadcast('PostAddedLikedUnliked');
         };

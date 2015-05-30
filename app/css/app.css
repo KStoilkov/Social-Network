@@ -249,5 +249,9 @@ input[type=file] {
     display: inline !important;
 }
 
+.postEdit span {
+    padding: 5px;
+}
+
 
 

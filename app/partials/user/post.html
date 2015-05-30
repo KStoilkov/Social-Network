@@ -48,6 +48,21 @@
                     wall
                 </span>
             </div>
+            <div class="col-xs-1 col-xs-offset-3 text-center postEdit">
+                <div class="dropdown">
+                    <span class="glyphicon glyphicon-chevron-down btn dropdown-toggle"
+                          type="button"
+                          id="dropdownMenu"
+                          data-toggle="dropdown"
+                          aria-expanded="true">
+
+                    </span>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                        <li role="presentation"><a href="#/editpost" role="menuitem">Edit Post</a></li>
+                        <li role="presentation"><a href="" role="menuitem" ng-click="deletePost(post.id)">Delete Post</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <p>{{post.date | date}}</p>
     </div>
