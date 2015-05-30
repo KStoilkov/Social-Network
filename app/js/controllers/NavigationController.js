@@ -22,6 +22,12 @@ app.controller('NavigationController',
             }
         };
 
+        $scope.clearSearchBox = function () {
+            $scope.searchTearm = '';
+            $('.searchInput').val('');
+            $scope.searchUser();
+        };
+
         $scope.logout = function () {
             authService.logout();
             alertify.success('Logout successful');

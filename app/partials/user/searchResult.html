@@ -1,5 +1,5 @@
 <ul class="nav navbar-default">
     <li ng-repeat="user in foundedUsers">
-        <a href="#/user/{{user.username}}">{{user.name}}</a>
+        <a href="#/user/{{user.username}}" ng-click="clearSearchBox()">{{user.name}}</a>
     </li>
 </ul>
