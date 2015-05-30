@@ -87,6 +87,18 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
         $http(request).success(success).error(error);
     };
 
+    function getPostComments (postId, success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'posts/' + postId + '/comments',
+            headers: {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     return {
         addPost : addPost,
         getWallPosts : getWallPosts,
@@ -94,6 +106,7 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
         unlikePost: unlikePost,
         getPostDetailedLikes : getPostDetailedLikes,
         deletePost : deletePost,
-        editPost : editPost
+        editPost : editPost,
+        getPostComments : getPostComments
     }
 });

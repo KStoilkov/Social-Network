@@ -130,7 +130,7 @@ app.controller('PostController',
                 }
             }, postContent);
 
-        }
+        };
 
         function reloadPosts() {
             $rootScope.$broadcast('PostAddedLikedUnliked');

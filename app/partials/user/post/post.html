@@ -24,4 +24,14 @@
     </div>
     <div class="col-xs-12" id="postContentDiv" ng-include="'partials/user/post/postContent.html'">
     </div>
+    <div class="col-xs-10 col-xs-offset-2"
+         ng-controller="CommentController"
+         ng-init="getPostComments(post.id)">
+
+        <div ng-repeat="comment in comments"
+             ng-include="'partials/user/post/comment.html'"
+             class="comment">
+
+        </div>
+    </div>
 </div>

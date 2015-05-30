@@ -1,0 +1,27 @@
+<div class="row infoCommentAuthor" ng-mouseenter="getUserPreview(comment.author.username)">
+    <div class="col-xs-8">
+        <a href="#/user/{{comment.author.username}}" class="commentAuthorLink">
+            <img ng-src="{{comment.author.profileImageData || defaultProfileImage}}" class="img-rounded"/>
+            {{comment.author.username}}
+        </a>
+        <span>
+            commented
+        </span>
+        <div class="commentAuthorPreviewDiv"
+             ng-include="'partials/user/userPreview.html'"
+             showhideonhover>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-3 commentDate">
+        {{comment.date | date}}
+    </div>
+    <div class="col-xs-9">
+        <div class="thumbnail commentContent">
+            {{comment.commentContent}}
+        </div>
+    </div>
+</div>
