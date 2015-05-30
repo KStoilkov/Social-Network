@@ -52,4 +52,11 @@
             <li class="inline" ng-if="displayCommentLikes.length > 0">like this.</li>
         </ul>
     </div>
+
+    <div class="col-xs-2 text-right">
+        <span ng-if="post.wallOwner.isFriend || post.wallOwner.username == loggedUser.username">
+            <button ng-if="!comment.liked" class="btn btn-success glyphicon glyphicon-thumbs-up btn-xs" ng-click="likeComment(post.id, comment.id)" title="Like"></button>
+            <button ng-if="comment.liked" class="btn btn-warning glyphicon glyphicon-thumbs-down btn-xs" ng-click="unlikeComment(post.id, comment.id)" title="Unlike"></button>
+        </span>
+    </div>
 </div>

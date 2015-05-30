@@ -33,10 +33,10 @@
              class="comment">
         </div>
         <div class="text-right" ng-if="allComments.length > 3 && !allCommentsShowed">
-            <button class="btn btn-link" ng-click="showAllComments(post.id)">{{textAfterComments}}</button>
+            <button class="btn btn-link" ng-click="showAllComments()">{{textAfterComments}}</button>
         </div>
         <div class="text-left" ng-if="allComments.length > 3 && allCommentsShowed">
-            <button class="btn btn-link" ng-click="showLessComments(post.id)">{{textAfterComments}}</button>
+            <button class="btn btn-link" ng-click="showLessComments()">{{textAfterComments}}</button>
         </div>
     </div>
 </div>
