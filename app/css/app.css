@@ -170,9 +170,9 @@ input[type=file] {
     display: none;
     position: absolute;
     background-color: #FFF;
-    -webkit-box-shadow: 0 0 3px #AAA;
-    -moz-box-shadow: 0 0 3px #AAA;
-    box-shadow: 0 0 3px #AAA;
+    -webkit-box-shadow: 0 0 15px #AAA;
+    -moz-box-shadow: 0 0 15px #AAA;
+    box-shadow: 0 0 15px #AAA;
     z-index: 50;
 }
 

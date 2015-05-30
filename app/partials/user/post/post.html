@@ -1,0 +1,27 @@
+<div class="row thumbnail">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-8 text-left postInformation" ng-include="'partials/user/post/postInformation.html'">
+            </div>
+            <div class="col-xs-1 col-xs-offset-3 text-center postEdit"
+                 ng-if="post.author.username === loggedUser.username">
+                <div class="dropdown">
+                    <span class="glyphicon glyphicon-chevron-down btn dropdown-toggle"
+                          type="button"
+                          id="dropdownMenu"
+                          data-toggle="dropdown"
+                          aria-expanded="true">
+
+                    </span>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                        <li role="presentation"><a href="" role="menuitem" ng-click="editPost(post.id, post.postContent)">Edit Post</a></li>
+                        <li role="presentation"><a href="" role="menuitem" ng-click="deletePost(post.id)">Delete Post</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p>{{post.date | date}}</p>
+    </div>
+    <div class="col-xs-12" id="postContentDiv" ng-include="'partials/user/post/postContent.html'">
+    </div>
+</div>

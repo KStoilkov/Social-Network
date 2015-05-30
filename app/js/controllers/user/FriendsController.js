@@ -44,10 +44,10 @@ app.controller('FriendsController', function ($scope, $rootScope, friendsService
             username,
             function () {
                 $rootScope.$broadcast('FriendRequestSend');
-                alertify.success('Send request to ' + username + ' send successfully!');
+                alertify.success('Friend request to ' + username + ' send successfully!');
             },
             function (err) {
-                alertify.error('Failed to send friend request');
+                alertify.error('Failed to send friend request.');
             }
         );
     };

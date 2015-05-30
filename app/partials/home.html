@@ -3,12 +3,12 @@
 </div>
 
 <div ng-if="isLogged()">
-    <div ng-include="'partials/user/add-post.html'">
+    <div ng-include="'partials/user/post/add-post.html'">
 
     </div>
 
     <div class="row" ng-repeat="post in newsFeed" ng-controller="PostController">
-        <div class="col-xs-12" ng-include="'partials/user/post.html'" id="post">
+        <div class="col-xs-12" ng-include="'partials/user/post/post.html'" id="post">
 
         </div>
     </div>

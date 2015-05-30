@@ -2,7 +2,7 @@
     <div class="" ng-include="'partials/user/profile.html'">
     </div>
     <div class="col-lg-12" ng-controller="PostController">
-        <div class="col-lg-12" ng-if="currentUser.isFriend || currentUser.username === loggedUser.username" ng-include="'partials/user/add-post.html'">
+        <div class="col-lg-12" ng-if="currentUser.isFriend || currentUser.username === loggedUser.username" ng-include="'partials/user/post/add-post.html'">
 
         </div>
     </div>
@@ -11,7 +11,7 @@
 
 
 <div class="row" ng-repeat="post in posts" ng-controller="PostController">
-    <div class="col-xs-12" ng-include="'partials/user/post.html'" id="post">
+    <div class="col-xs-12" ng-include="'partials/user/post/post.html'" id="post">
 
     </div>
 </div>

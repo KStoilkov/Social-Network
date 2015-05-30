@@ -31,7 +31,7 @@ app.controller('PostController',
                 },
                 function (err) {
                     console.error(err);
-                    alertify.error('Failed to like post');
+                    alertify.error('Failed to like post.');
                 }
             );
         };
@@ -44,7 +44,7 @@ app.controller('PostController',
                 },
                 function (err) {
                     console.error(err);
-                    alertify.error('Failed to unlike post');
+                    alertify.error('Failed to unlike post.');
                 })
         };
 
@@ -90,7 +90,8 @@ app.controller('PostController',
                     postService.deletePost(
                         postId,
                         function () {
-                            alertify.success('Post deleted');
+                            alertify.success('Post deleted.');
+                            reloadPosts();
                         },
                         function (err) {
                             console.log(err);
@@ -99,6 +100,29 @@ app.controller('PostController',
                 }
             });
         };
+
+        $scope.editPost = function (postId, postContent) {
+            alertify.prompt('Enter new comment content.', function (responce, input) {
+                if(responce) {
+                    var newData = {
+                        postContent: input
+                    };
+
+                    postService.editPost(
+                        postId,
+                        newData,
+                        function () {
+                            alertify.success('Post edited.');
+                            reloadPosts();
+                        },
+                        function (err) {
+                            console.log(err);
+                        }
+                    );
+                } 
+            }, postContent);
+
+        }
 
         function reloadPosts() {
             $rootScope.$broadcast('PostAddedLikedUnliked');

@@ -74,12 +74,26 @@ app.factory('postService', function ($http, baseServiceUrl, authService) {
         $http(request).success(success).error(error);
     };
 
+    function editPost(postId, newData, success, error) {
+        var request = {
+            method: 'PUT',
+            url: baseServiceUrl + 'Posts/' + postId,
+            headers : {
+                'Authorization' : authService.getUserAuthorization()
+            },
+            data: newData
+        };
+
+        $http(request).success(success).error(error);
+    };
+
     return {
         addPost : addPost,
         getWallPosts : getWallPosts,
         likePost : likePost,
         unlikePost: unlikePost,
         getPostDetailedLikes : getPostDetailedLikes,
-        deletePost : deletePost
+        deletePost : deletePost,
+        editPost : editPost
     }
 });
