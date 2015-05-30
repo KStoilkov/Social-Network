@@ -25,3 +25,29 @@
         </div>
     </div>
 </div>
+
+<div class="row" ng-init="getCommentLikes(post.id, comment.id)">
+    <div class="col-xs-10 commentLikes">
+        <ul class="text-left">
+            <li ng-repeat="commentUser in displayCommentLikes" class="inline">
+                <a href="#/user/{{commentUser.username}}/">
+                    {{commentUser.username}}{{$last ? ' ' : ', '}}
+                </a>
+            </li>
+            <li class="inline" ng-if="restCommentLikes.length > 0">
+                and
+                <span class="btn-link">
+                    {{restCommentLikes.length}} more
+                    <ul class="nav postDetailedLikesList" showhideonhover>
+                        <li ng-repeat="restCommentUser in restCommentLikes">
+                            <a href="#/user/{{restCommentUser.username}}/">
+                                {{restCommentUser.username}}
+                            </a>
+                        </li>
+                    </ul>
+                </span>
+            </li>
+            <li class="inline" ng-if="displayCommentLikes.length > 0">like this.</li>
+        </ul>
+    </div>
+</div>

@@ -82,10 +82,6 @@ input[type=file] {
     margin-top: 10px;
 }
 
-#postLikes ul li {
-    margin-right: 15px;
-}
-
 #friendsBoxImage {
     width: 50%;
     max-width: 60px;
@@ -286,6 +282,18 @@ input[type=file] {
     height: 70px;
     word-wrap: break-word;
     overflow:auto;
+}
+
+.commentLikes > ul{
+    padding: 0;
+}
+
+.commentLikes > ul > li {
+    margin-right: 5px;
+}
+
+.commentLikes > ul > li:nth-child(2), .commentLikes > ul > li:nth-child(3) {
+    margin-right: 0;
 }
 
 
