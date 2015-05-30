@@ -3,13 +3,14 @@
         <a href="#/user/{{post.author.username}}" class="btn-link">
             <img ng-src="{{post.author.profileImageData}}"/>
             <h4>{{post.author.username}}</h4>
-            <div class="userPreviewDiv"
-                    ng-include="'partials/user/userPreview.html'"
-                    ng-init="getUserPreview(post.author.username)"
-                    showhideonhover>
 
-            </div>
         </a>
+        <div class="userPreviewDiv"
+             ng-include="'partials/user/userPreview.html'"
+             ng-init="getUserPreview(post.author.username)"
+             showhideonhover>
+
+        </div>
         <p>{{post.date | date}}</p>
     </div>
     <div class="col-xs-8 col-xs-offset-1" id="postContentDiv">
@@ -37,11 +38,11 @@
                                 </ul>
                             </span>
                     </li>
-                    <li class="inline" ng-if="userLikes.length > 0"> Likes this</li>
+                    <li class="inline" ng-if="userLikes.length > 0"> like this</li>
                 </ul>
             </div>
             <div class="col-xs-4 text-right">
-                <span ng-if="post.author.isFriend || post.author.username == loggedUser.username">
+                <span ng-if="post.wallOwner.isFriend || post.wallOwner.username == loggedUser.username">
                     <button ng-if="!post.liked" class="btn btn-success glyphicon glyphicon-thumbs-up" ng-click="likePost(post.id)" title="Like"></button>
                     <button ng-if="post.liked" class="btn btn-warning glyphicon glyphicon-thumbs-down" ng-click="unlikePost(post.id)" title="Unlike"></button>
                 </span>

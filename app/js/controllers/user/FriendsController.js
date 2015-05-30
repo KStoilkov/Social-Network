@@ -39,6 +39,19 @@ app.controller('FriendsController', function ($scope, $rootScope, friendsService
         );
     };
 
+    $scope.sendFriendRequest = function (username) {
+        friendsService.sendFriendRequest(
+            username,
+            function () {
+                $rootScope.$broadcast('FriendRequestSend');
+                alertify.success('Send request to ' + username + ' send successfully!');
+            },
+            function (err) {
+                alertify.error('Failed to send friend request');
+            }
+        );
+    };
+
     function getFriendRequests () {
         friendsService.getFriendRequests(
             function (data) {

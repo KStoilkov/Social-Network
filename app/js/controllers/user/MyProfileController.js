@@ -11,7 +11,7 @@ app.controller('MyProfileController',
                 username,
                 function () {
                     $rootScope.$broadcast('FriendRequestSend', username);
-                    getCurrentUserFullData(username)
+                    getCurrentUserFullData(username);
                     alertify.success('Send request to ' + username + ' send successfully!');
                 },
                 function (err) {
@@ -21,7 +21,9 @@ app.controller('MyProfileController',
         };
 
         function getCurrentUserFullData(username) {
-            if (username === $scope.loggedUser.username) {
+            username = username || $scope.loggedUser.username;
+
+            if ($scope.loggedUser && username === $scope.loggedUser.username) {
                 $scope.currentUser = $scope.loggedUser;
             } else {
                 userService.getUserFullData(

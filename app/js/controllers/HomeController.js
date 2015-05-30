@@ -9,7 +9,6 @@ app.controller('HomeController',
                 startPage,
                 function (data) {
                     $scope.newsFeed = data;
-                    console.log(data);
                 },
                 function (err) {
                     console.log(err);

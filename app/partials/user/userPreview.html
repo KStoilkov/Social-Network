@@ -11,7 +11,7 @@
         </td>
     </tr>
     <tr ng-if="loggedUser.username !== previewUser.username">
-        <td colspan="2">
+        <td colspan="2" ng-controller="FriendsController">
             <div ng-if="previewUser.isFriend" class="btn btn-primary disabled">Friend</div>
             <div ng-if="previewUser.hasPendingRequest && !previewUser.isFriends" class="btn btn-warning disabled">Pending</div>
             <button ng-if="!previewUser.isFriend && !previewUser.hasPendingRequest" class="btn btn-success" ng-click="sendFriendRequest(previewUser.username)">

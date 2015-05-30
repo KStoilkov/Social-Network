@@ -13,6 +13,7 @@ app.controller('PostController', function ($scope, $rootScope, $routeParams, pos
             postData,
             function () {
                 $scope.postData.postContent = '';
+                alertify.success('Successfully posted on ' + $routeParams.username + '\'s  wall!');
                 reloadPosts();
             },
             function (err) {
