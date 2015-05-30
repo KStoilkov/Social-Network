@@ -1,4 +1,7 @@
 <ul class="nav nav-btn loggedUserFriend col-xs-12">
+    <li class="text-center">
+        <h3>Friends {{ownFriends.length}} total</h3>
+    </li>
     <li ng-repeat="friend in ownFriends">
         <a href="#/user/{{friend.username}}" class="text-center">
             <img ng-src="{{friend.profileImageData || defaultProfileImage}}"/>

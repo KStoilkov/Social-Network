@@ -15,12 +15,20 @@ app.controller('PostController',
                 postData,
                 function () {
                     $scope.postData.postContent = '';
-                    alertify.success('Successfully posted on ' + $routeParams.username + '\'s  wall!');
+                    alertify.success('Successfully posted on ' + getDisplayName() + ' wall!');
                     reloadPosts();
                 },
                 function (err) {
                     console.log(err);
                 });
+
+            function getDisplayName() {
+                if ($routeParams.username === $scope.loggedUser.username) {
+                    return 'your';
+                }
+
+                return $routeParams.username + '\'s' ;
+            }
         };
 
         $scope.likePost = function (postId) {
@@ -119,7 +127,7 @@ app.controller('PostController',
                             console.log(err);
                         }
                     );
-                } 
+                }
             }, postContent);
 
         }

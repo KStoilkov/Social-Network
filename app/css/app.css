@@ -253,5 +253,17 @@ input[type=file] {
     padding: 5px;
 }
 
+.searchResult {
+    position: absolute;
+    width: 82%;
+    top: 100%;
+    left: 0;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #AAA;
+    z-index: 50;
+}
+
 
 

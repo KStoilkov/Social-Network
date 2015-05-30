@@ -19,7 +19,7 @@
 <span>
     posted on
 </span>
-<span ng-if="loggedUser.username === post.author.username">
+<span ng-if="loggedUser.username === post.author.username && post.wallOwner.username === loggedUser.username">
     your
 </span>
 <span ng-if="post.author.username === post.wallOwner.username && loggedUser.username !== post.author.username">

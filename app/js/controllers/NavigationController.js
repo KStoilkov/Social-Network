@@ -5,6 +5,23 @@ app.controller('NavigationController',
 
         $scope.defaultProfileImage = defaultProfileImageUrl;
 
+        $scope.searchTearm = '';
+
+        $scope.searchUser = function (searchTerm) {
+            if (searchTerm !== '') {
+                userService.searchUser(
+                    searchTerm,
+                    function (data) {
+                        $scope.foundedUsers = data;
+                        console.log(data);
+                    },
+                    function (err) {
+                        console.log(err);
+                    }
+                );
+            }
+        };
+
         $scope.logout = function () {
             authService.logout();
             alertify.success('Logout successful');
@@ -19,11 +36,16 @@ app.controller('NavigationController',
             getOwnFriends();
         });
 
+        $scope.$on('RegisterSuccessful', function () {
+            getOwnFriends();
+        });
+
         function getOwnFriends() {
             if ($scope.isLogged()) {
                 friendsService.getOwnFriends(
                     function (data) {
                         $scope.ownFriends = data;
+                        $scope.friendsToDisplay = data.slice(0, 6);
                     },
                     function (err) {
                         console.log(err);

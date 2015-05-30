@@ -83,12 +83,25 @@ app.factory('userService', function ($http, authService, baseServiceUrl) {
         $http(request).success(success).error(error);
     }
 
+    function searchUser (searchTerm, success, error) {
+        var request = {
+            method: 'GET',
+            url: baseServiceUrl + 'users/search?searchTerm=' + searchTerm,
+            headers : {
+                'Authorization' : authService.getUserAuthorization()
+            }
+        };
+
+        $http(request).success(success).error(error);
+    }
+
     return {
         getLoggedUserData : getLoggedUserData,
         editProfile : editProfile,
         changePassword : changePassword,
         getUserFullData : getUserFullData,
         getUserPreview : getUserPreview,
-        getNewsFeed : getNewsFeed
+        getNewsFeed : getNewsFeed,
+        searchUser : searchUser
     }
 });
