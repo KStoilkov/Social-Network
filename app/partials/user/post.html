@@ -1,19 +1,57 @@
 <div class="row thumbnail">
-    <div class="col-xs-3 thumbnail text-center" id="postAuthorDiv">
-        <a href="#/user/{{post.author.username}}" class="btn-link">
-            <img ng-src="{{post.author.profileImageData}}"/>
-            <h4>{{post.author.username}}</h4>
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-8 text-left postInformation">
+                <div class="infoPostAuthor"
+                     ng-if="post.author.username !== loggedUser.username"
+                     ng-mouseenter="getUserPreview(post.author.username)">
 
-        </a>
-        <div class="userPreviewDiv"
-             ng-include="'partials/user/userPreview.html'"
-             ng-init="getUserPreview(post.author.username)"
-             showhideonhover>
+                        <a href="#/user/{{post.author.username}}" class="postAuthorLink">
+                            <img ng-src="{{post.author.profileImageData || defaultProfileImage}}" class="img-rounded"/>
+                            {{post.author.username}}
+                        </a>
+                        <div class="postAuthorPreviewDiv"
+                             ng-include="'partials/user/userPreview.html'"
+                             showhideonhover>
 
+                        </div>
+                </div>
+                <span ng-if="post.author.username === loggedUser.username" class="postAuthorLink">
+                    <img ng-src="{{post.author.profileImageData || defaultProfileImage}}" class="img-rounded"/>
+                    You
+                </span>
+                <span>
+                    posted on
+                </span>
+                <span ng-if="loggedUser.username === post.author.username">
+                    your
+                </span>
+                <span ng-if="post.author.username === post.wallOwner.username && loggedUser.username !== post.author.username">
+                    <span ng-if="post.author.gender === 0"> own </span>
+                    <span ng-if="post.author.gender === 1"> his </span>
+                    <span ng-if="post.author.gender === 2"> her </span>
+                </span>
+                <div class="infoWallOwner"
+                     ng-if="post.author.username !== post.wallOwner.username"
+                        ng-mouseenter="getUserPreview(post.wallOwner.username)">
+                    <a href="#/user/{{post.wallOwner.username}}" class="postOwnerLink">
+                        <img ng-src="{{post.wallOwner.profileImageData || defaultProfileImage}}" class="img-rounded"/>
+                        {{post.wallOwner.username}}'s
+                    </a>
+                    <div class="postWallOwnerPreviewDiv"
+                         ng-include="'partials/user/userPreview.html'"
+                         showhideonhover>
+
+                    </div>
+                </div>
+                <span>
+                    wall
+                </span>
+            </div>
         </div>
         <p>{{post.date | date}}</p>
     </div>
-    <div class="col-xs-8 col-xs-offset-1" id="postContentDiv">
+    <div class="col-xs-12" id="postContentDiv">
         <div class="row">
             <div class="col-xs-12 thumbnail" id="postContent">
                 <div>{{post.postContent}}</div>
@@ -38,7 +76,7 @@
                                 </ul>
                             </span>
                     </li>
-                    <li class="inline" ng-if="userLikes.length > 0"> like this</li>
+                    <li class="inline" ng-if="userLikes.length > 0">likes this</li>
                 </ul>
             </div>
             <div class="col-xs-4 text-right">

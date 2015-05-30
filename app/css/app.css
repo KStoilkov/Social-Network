@@ -166,16 +166,24 @@ input[type=file] {
     height: 20px;
 }
 
-.userPreviewDiv {
+.postAuthorPreviewDiv, .postWallOwnerPreviewDiv {
     display: none;
     position: absolute;
-    top: -80px;
-    left: +130px;
     background-color: #FFF;
     -webkit-box-shadow: 0 0 3px #AAA;
     -moz-box-shadow: 0 0 3px #AAA;
     box-shadow: 0 0 3px #AAA;
     z-index: 50;
+}
+
+.postAuthorPreviewDiv {
+    top: -140px;
+    left: -10px;
+}
+
+.postWallOwnerPreviewDiv {
+    top: -140px;
+    left: 220px;
 }
 
 .friendRequest > a > * {
@@ -210,4 +218,36 @@ input[type=file] {
     max-height: 80px;
     width:250px;
 }
+
+.postAuthorLink, .postOwnerLink{
+    font-size: 20px;
+}
+
+.postInformation {
+    vertical-align: middle;
+}
+
+.infoPostAuthor{
+    display: inline;
+}
+
+.infoWallOwner{
+    display: inline;
+}
+
+.postInformation span {
+    font-size: 20px;
+}
+
+.postAuthorLink img {
+    width: 8%;
+    display: inline !important;
+}
+
+.postOwnerLink img {
+    width: 8%;
+    display: inline !important;
+}
+
+
 
