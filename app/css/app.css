@@ -80,6 +80,15 @@ input[type=file] {
 
 #postLikes {
     margin-top: 10px;
+    padding: 0;
+}
+
+#postLikes ul {
+    padding: 0;
+}
+
+#postLikes > ul > li:nth-child(1), #postLikes > ul > li:nth-child(2), #postLikes > ul > li:nth-child(3) {
+    margin-right: 5px;
 }
 
 #friendsBoxImage {
@@ -122,14 +131,13 @@ input[type=file] {
     padding: 0;
 }
 
-.postDetailedLikesList {
+.postDetailedLikesList, .commentDetailedLikesList{
     display: none;
     position: absolute;
     padding: 0;
     margin: 0;
+    top: -1px;
     background-color: white;
-    top: -25px;
-    left: 180px;
     box-shadow: 0 0 3px #000;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -294,6 +302,16 @@ input[type=file] {
 
 .commentLikes > ul > li:nth-child(2), .commentLikes > ul > li:nth-child(3) {
     margin-right: 0;
+}
+
+.hiddenCommentUser {
+    padding: 5px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.infoCommentAuthor > div > div{
+    display: inline;
 }
 
 

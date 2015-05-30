@@ -6,9 +6,8 @@
         <ul ng-init="getPostDetailedLikes(post.id)" class="likes text-left">
             <li ng-repeat="user in userLikes" class="inline">
                 <a href="#/user/{{user}}/">
-                    {{user}}
+                    {{user}}{{$last ? ' ' : ', '}}
                 </a>
-                &nbsp;&nbsp;
             </li>
             <li class="inline" ng-if="postDetailedLikes.length > 0">
                 and
@@ -16,7 +15,7 @@
                     {{postDetailedLikes.length}} more
                     <ul class="nav postDetailedLikesList" showhideonhover>
                         <li ng-repeat="userLike in postDetailedLikes">
-                            <a href="#/user/{{userLike}}/">
+                            <a href="#/user/{{userLike}}/" class="hiddenCommentUser">
                                 {{userLike}}
                             </a>
                         </li>

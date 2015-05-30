@@ -20,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <p>{{post.date | date}}</p>
+        <p>on {{post.date | date}}</p>
     </div>
     <div class="col-xs-12" id="postContentDiv" ng-include="'partials/user/post/postContent.html'">
     </div>
@@ -31,7 +31,12 @@
         <div ng-repeat="comment in comments"
              ng-include="'partials/user/post/comment.html'"
              class="comment">
-
+        </div>
+        <div class="text-right" ng-if="allComments.length > 3 && !allCommentsShowed">
+            <button class="btn btn-link" ng-click="showAllComments(post.id)">{{textAfterComments}}</button>
+        </div>
+        <div class="text-left" ng-if="allComments.length > 3 && allCommentsShowed">
+            <button class="btn btn-link" ng-click="showLessComments(post.id)">{{textAfterComments}}</button>
         </div>
     </div>
 </div>

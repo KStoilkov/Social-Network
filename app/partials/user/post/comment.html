@@ -1,23 +1,25 @@
 <div class="row infoCommentAuthor" ng-mouseenter="getUserPreview(comment.author.username)">
     <div class="col-xs-8">
-        <a href="#/user/{{comment.author.username}}" class="commentAuthorLink">
-            <img ng-src="{{comment.author.profileImageData || defaultProfileImage}}" class="img-rounded"/>
-            {{comment.author.username}}
-        </a>
+        <div>
+            <a href="#/user/{{comment.author.username}}" class="commentAuthorLink">
+                <img ng-src="{{comment.author.profileImageData || defaultProfileImage}}" class="img-rounded"/>
+                {{comment.author.username}}
+            </a>
+            <div class="commentAuthorPreviewDiv"
+                 ng-include="'partials/user/userPreview.html'"
+                 showhideonhover>
+
+            </div>
+        </div>
         <span>
             commented
         </span>
-        <div class="commentAuthorPreviewDiv"
-             ng-include="'partials/user/userPreview.html'"
-             showhideonhover>
-
-        </div>
     </div>
 </div>
 
 <div class="row">
     <div class="col-xs-3 commentDate">
-        {{comment.date | date}}
+        on {{comment.date | date}}
     </div>
     <div class="col-xs-9">
         <div class="thumbnail commentContent">
@@ -38,9 +40,9 @@
                 and
                 <span class="btn-link">
                     {{restCommentLikes.length}} more
-                    <ul class="nav postDetailedLikesList" showhideonhover>
+                    <ul class="nav commentDetailedLikesList" showhideonhover>
                         <li ng-repeat="restCommentUser in restCommentLikes">
-                            <a href="#/user/{{restCommentUser.username}}/">
+                            <a href="#/user/{{restCommentUser.username}}/" class="hiddenCommentUser">
                                 {{restCommentUser.username}}
                             </a>
                         </li>

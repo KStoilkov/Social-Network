@@ -3,10 +3,22 @@
 app.controller('CommentController', function ($scope, commentService) {
 
     $scope.getPostComments = function (postId) {
+        $scope.displayComments = [];
+
         commentService.getPostComments(
             postId,
             function (data) {
-                $scope.comments = data;
+                $scope.allComments = data;
+                $scope.allCommentsShowed = false;
+                $scope.textAfterComments = 'Show more comments..';
+
+                data.forEach(function (comment) {
+                    if ($scope.displayComments.length < 3) {
+                        $scope.displayComments.push(comment);
+                    }
+                });
+
+                $scope.comments = $scope.displayComments;
             },
             function (err) {
                 console.log(err);
@@ -35,7 +47,19 @@ app.controller('CommentController', function ($scope, commentService) {
                 console.log(err);
             }
         );
+        
+        $scope.showAllComments = function (postId) {
+            $scope.comments = angular.copy($scope.allComments);
+            //$scope.getPostComments(postId);
+            $scope.allCommentsShowed = true;
+            $scope.textAfterComments = 'Show less comments..';
+        };
 
-        $scope.lastElementId = $scope.displayCommentLikes[1];
+        $scope.showLessComments = function (postId) {
+            $scope.comments = angular.copy($scope.displayComments);
+            //$scope.getPostComments(postId);
+            $scope.allCommentsShowed = false;
+            $scope.textAfterComments = 'Show more comments..';
+        };
     };
 });
