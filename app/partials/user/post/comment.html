@@ -17,10 +17,22 @@
             commented
         </span>
     </div>
-    <div class="col-xs-2"
-         ng-if="post.wallOwner.username === loggedUser.usernmae">
-        <button class="btn glyphicon glyphicon-chevron-down">
-        </button>
+    <div class="col-xs-2 text-right"
+         ng-if="comment.author.username === loggedUser.username">
+        <div class="dropdown">
+            <span class="glyphicon glyphicon-chevron-down btn dropdown-toggle"
+                  type="button"
+                  id="dropdownMenu2"
+                  data-toggle="dropdown"
+                  aria-expanded="true">
+
+            </span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu2">
+                <li role="presentation"><a href="" role="menuitem" ng-click="editComment(post.id, comment.id, comment.commentContent)">Edit Comment</a></li>
+                <li role="presentation"><a href="" role="menuitem" ng-click="deleteComment(post.id, comment.id)">Delete Comment</a></li>
+            </ul>
+        </div>
+
     </div>
 </div>
 

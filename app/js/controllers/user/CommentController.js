@@ -69,6 +69,50 @@ app.controller('CommentController', function ($scope, commentService) {
         );
     };
 
+    $scope.editComment = function (postId, commentId, textTemplate) {
+        alertify.prompt('Enter new comment content', function (responce, text) {
+            if(responce) {
+                var data = {
+                    commentContent: text
+                };
+
+                commentService.editComment(
+                    data,
+                    postId,
+                    commentId,
+                    function () {
+                        $scope.getPostComments(postId, commentId);
+                        alertify.success('Comment edited.');
+                    },
+                    function (err) {
+                        console.log(err);
+                    }
+                );
+            }
+        }, textTemplate);
+
+    };
+
+    $scope.deleteComment = function (postId, commentId) {
+        alertify.confirm('Are you sure you want to delete this comment?',
+            function (responce) {
+
+                if (responce) {
+                    commentService.deleteComment(
+                        postId,
+                        commentId,
+                        function () {
+                            $scope.getPostComments(postId, commentId);
+                            alertify.success('Comment deleted.');
+                        },
+                        function (err) {
+                            console.log(err);
+                        }
+                    );
+                }
+        });
+    };
+
     $scope.unlikeComment = function (postId, commentId) {
         commentService.unlikeComment(
             postId,
