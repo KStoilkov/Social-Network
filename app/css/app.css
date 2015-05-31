@@ -69,9 +69,14 @@ input[type=file] {
 }
 
 #post > div {
-    -webkit-box-shadow: 0 0 10px #204d74;
-    -moz-box-shadow: 0 0 10px #204d74;
-    box-shadow: 0 0 10px #204d74;
+    -webkit-box-shadow: 0 0 20px #204d74;
+    -moz-box-shadow: 0 0 20px #204d74;
+    box-shadow: 0 0 20px #204d74;
+}
+
+#post > div > div {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 #postLikes > * {
@@ -275,10 +280,14 @@ input[type=file] {
     -webkit-box-shadow: 0 0 5px #AAA;
     -moz-box-shadow: 0 0 5px #AAA;
     box-shadow: 0 0 5px #AAA;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background-color: rgba(100, 100, 100, 0.1);
 }
 
 .commentAuthorPreviewDiv {
-    top: -650%;
+    top: -550%;
 }
 
 .commentAuthorLink img {

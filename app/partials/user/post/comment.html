@@ -1,19 +1,26 @@
-<div class="row infoCommentAuthor" ng-mouseenter="getUserPreview(comment.author.username)">
-    <div class="col-xs-8">
+<div class="row infoCommentAuthor"
+     ng-mouseenter="getUserPreview(comment.author.username)">
+    <div class="col-xs-10">
         <div>
-            <a href="#/user/{{comment.author.username}}" class="commentAuthorLink">
-                <img ng-src="{{comment.author.profileImageData || defaultProfileImage}}" class="img-rounded"/>
+            <a href="#/user/{{comment.author.username}}"
+               class="commentAuthorLink">
+                <img ng-src="{{comment.author.profileImageData || defaultProfileImage}}"
+                     class="img-rounded"/>
                 {{comment.author.username}}
             </a>
             <div class="commentAuthorPreviewDiv"
                  ng-include="'partials/user/userPreview.html'"
                  showhideonhover>
-
             </div>
         </div>
         <span>
             commented
         </span>
+    </div>
+    <div class="col-xs-2"
+         ng-if="post.wallOwner.username === loggedUser.usernmae">
+        <button class="btn glyphicon glyphicon-chevron-down">
+        </button>
     </div>
 </div>
 
@@ -28,35 +35,51 @@
     </div>
 </div>
 
-<div class="row" ng-init="getCommentLikes(post.id, comment.id)">
-    <div class="col-xs-10 commentLikes">
+<div class="row">
+    <div class="col-xs-10 commentLikes"
+         ng-controller="CommentController"
+         ng-init="getCommentLikes(post.id, comment.id)">
         <ul class="text-left">
-            <li ng-repeat="commentUser in displayCommentLikes" class="inline">
+            <li ng-repeat="commentUser in displayCommentLikes"
+                class="inline">
                 <a href="#/user/{{commentUser.username}}/">
                     {{commentUser.username}}{{$last ? ' ' : ', '}}
                 </a>
             </li>
-            <li class="inline" ng-if="restCommentLikes.length > 0">
+            <li class="inline"
+                ng-if="restCommentLikes.length > 0">
                 and
                 <span class="btn-link">
                     {{restCommentLikes.length}} more
                     <ul class="nav commentDetailedLikesList" showhideonhover>
                         <li ng-repeat="restCommentUser in restCommentLikes">
-                            <a href="#/user/{{restCommentUser.username}}/" class="hiddenCommentUser">
+                            <a href="#/user/{{restCommentUser.username}}/"
+                               class="hiddenCommentUser">
                                 {{restCommentUser.username}}
                             </a>
                         </li>
                     </ul>
                 </span>
             </li>
-            <li class="inline" ng-if="displayCommentLikes.length > 0">like this.</li>
+            <li class="inline"
+                ng-if="displayCommentLikes.length > 0">
+                like this.
+            </li>
         </ul>
     </div>
 
     <div class="col-xs-2 text-right">
         <span ng-if="post.wallOwner.isFriend || post.wallOwner.username == loggedUser.username">
-            <button ng-if="!comment.liked" class="btn btn-success glyphicon glyphicon-thumbs-up btn-xs" ng-click="likeComment(post.id, comment.id)" title="Like"></button>
-            <button ng-if="comment.liked" class="btn btn-warning glyphicon glyphicon-thumbs-down btn-xs" ng-click="unlikeComment(post.id, comment.id)" title="Unlike"></button>
+            <button ng-if="!comment.liked"
+                    class="btn btn-success glyphicon glyphicon-thumbs-up btn-xs"
+                    ng-click="likeComment(post.id, comment.id)"
+                    title="Like">
+            </button>
+            <button ng-if="comment.liked"
+                    class="btn btn-warning glyphicon glyphicon-thumbs-down btn-xs"
+                    ng-click="unlikeComment(post.id, comment.id)"
+                    title="Unlike">
+            </button>
         </span>
     </div>
 </div>

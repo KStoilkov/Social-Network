@@ -24,7 +24,7 @@
     </div>
     <div class="col-xs-12" id="postContentDiv" ng-include="'partials/user/post/postContent.html'">
     </div>
-    <div class="col-xs-10 col-xs-offset-2"
+    <div class="col-xs-10"
          ng-controller="CommentController"
          ng-init="getPostComments(post.id)">
 
@@ -33,10 +33,13 @@
              class="comment">
         </div>
         <div class="text-right" ng-if="allComments.length > 3 && !allCommentsShowed">
-            <button class="btn btn-link" ng-click="showAllComments()">{{textAfterComments}}</button>
+            <button class="btn btn-link" ng-click="showAllComments(post.id, 'showAll')">Show more comments..</button>
         </div>
         <div class="text-left" ng-if="allComments.length > 3 && allCommentsShowed">
-            <button class="btn btn-link" ng-click="showLessComments()">{{textAfterComments}}</button>
+            <button class="btn btn-link" ng-click="showLessComments(post.id, 'hide')">Show less comments..</button>
+        </div>
+        <div class="text-center" ng-if="post.wallOwner.isFriend || post.wallOwner.username === loggedUser.username">
+            <button class="btn btn-success" ng-click="addComment(post.id)">Add new comment</button>
         </div>
     </div>
 </div>

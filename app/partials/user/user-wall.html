@@ -2,7 +2,9 @@
     <div class="" ng-include="'partials/user/profile.html'">
     </div>
     <div class="col-lg-12" ng-controller="PostController">
-        <div class="col-lg-12" ng-if="currentUser.isFriend || currentUser.username === loggedUser.username" ng-include="'partials/user/post/add-post.html'">
+        <div class="col-lg-12"
+             ng-if="currentUser.isFriend || currentUser.username === loggedUser.username"
+             ng-include="'partials/user/post/add-post.html'">
 
         </div>
     </div>
