@@ -41,7 +41,7 @@ app.controller('MyProfileController',
 
                     },
                     function () {
-                        alertify.error('No such user.');
+                        alertify.error('User do not exist!.');
                         $location.path('/');
                     }
                 )

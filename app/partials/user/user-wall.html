@@ -15,3 +15,9 @@
 
     </div>
 </div>
+
+<div class="row" ng-if="postsRecieved > currentPageSize">
+    <div class="col-xs-12 text-right">
+        <button class="btn btn-default" ng-click="loadMorePosts()">Load more posts..</button>
+    </div>
+</div>

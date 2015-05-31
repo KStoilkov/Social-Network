@@ -12,4 +12,10 @@
 
         </div>
     </div>
+
+    <div class="row" ng-if="feedsRecieved > currentHomePageSize">
+        <div class="col-xs-12 text-right">
+            <button class="btn btn-default" ng-click="loadMoreNews()">Load more posts..</button>
+        </div>
+    </div>
 </div>
