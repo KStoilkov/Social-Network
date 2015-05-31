@@ -9,6 +9,7 @@
                 {{comment.author.username}}
             </a>
             <div class="commentAuthorPreviewDiv"
+                 ng-if="comment.author.username !== loggedUser.username"
                  ng-include="'partials/user/userPreview.html'"
                  showhideonhover>
             </div>

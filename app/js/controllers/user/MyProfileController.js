@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('MyProfileController',
-    function ($scope, $routeParams, $rootScope, userService, friendsService, defaultCoverImageUrl, defaultProfileImageUrl) {
+    function ($scope, $routeParams, $rootScope, $location, userService, friendsService, defaultCoverImageUrl, defaultProfileImageUrl) {
 
         $scope.defaultCoverImage = defaultCoverImageUrl;
         $scope.defaultProfileImage = defaultProfileImageUrl;
@@ -14,7 +14,7 @@ app.controller('MyProfileController',
                     getCurrentUserFullData(username);
                     alertify.success('Send request to ' + username + ' send successfully!');
                 },
-                function (err) {
+                function () {
                     alertify.error('Failed to send friend request');
                 }
             );
@@ -40,8 +40,9 @@ app.controller('MyProfileController',
                         }
 
                     },
-                    function (err) {
-                        console.log(err);
+                    function () {
+                        alertify.error('No such user.');
+                        $location.path('/');
                     }
                 )
             }

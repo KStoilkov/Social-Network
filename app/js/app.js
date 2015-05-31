@@ -20,22 +20,54 @@ app.config(function($routeProvider) {
 
     $routeProvider.when('/user/:username/', {
         templateUrl: 'partials/user/user-wall.html',
-        controller: 'MyWallController'
+        controller: 'MyWallController',
+        resolve: {
+            isLogged: function ($location) {
+                if (!sessionStorage['Authorization']) {
+                    alertify.error('You have to login first.');
+                    $location.path('/');
+                }
+            }
+        }
     });
 
     $routeProvider.when('/profile/', {
         templateUrl: 'partials/user/edit-profile.html',
-        controller: 'EditProfileController'
+        controller: 'EditProfileController',
+        resolve: {
+            isLogged: function ($location) {
+                if (!sessionStorage['Authorization']) {
+                    alertify.error('You have to login first.');
+                    $location.path('/');
+                }
+            }
+        }
     });
 
     $routeProvider.when('/changepassword/', {
         templateUrl: 'partials/user/change-password.html',
-        controller: 'ChangePasswordController'
+        controller: 'ChangePasswordController',
+        resolve: {
+            isLogged: function ($location) {
+                if (!sessionStorage['Authorization']) {
+                    alertify.error('You have to login first.');
+                    $location.path('/');
+                }
+            }
+        }
     });
 
     $routeProvider.when('/friends/', {
         templateUrl: 'partials/user/friendlist.html',
-        controller: 'NavigationController'
+        controller: 'NavigationController',
+        resolve: {
+            isLogged: function ($location) {
+                if (!sessionStorage['Authorization']) {
+                    alertify.error('You have to login first.');
+                    $location.path('/');
+                }
+            }
+        }
     });
 
     $routeProvider.otherwise({

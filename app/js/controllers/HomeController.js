@@ -1,7 +1,7 @@
 'use strict';
 
 app.controller('HomeController',
-    function ($scope, userService, defaultStartPostId, defaultPageSize, defaultProfileImageUrl) {
+    function ($scope, $route, userService, defaultStartPostId, defaultPageSize, defaultProfileImageUrl) {
 
         $scope.defaultProfileImage = defaultProfileImageUrl;
 
@@ -19,6 +19,10 @@ app.controller('HomeController',
                 );
             }
         };
+
+        $scope.$on('PostAddedLikedUnliked', function () {
+            getNewsFeed(defaultStartPostId, defaultPageSize);
+        });
 
         getNewsFeed(defaultStartPostId, defaultPageSize);
 });

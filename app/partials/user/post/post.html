@@ -35,11 +35,11 @@
         <div class="text-right" ng-if="allComments.length > 3 && !allCommentsShowed">
             <button class="btn btn-link" ng-click="showAllComments(post.id, 'showAll')">Show more comments..</button>
         </div>
-        <div class="text-left" ng-if="allComments.length > 3 && allCommentsShowed">
+        <div class="text-right" ng-if="allComments.length > 3 && allCommentsShowed">
             <button class="btn btn-link" ng-click="showLessComments(post.id, 'hide')">Show less comments..</button>
         </div>
-        <div class="text-center" ng-if="post.wallOwner.isFriend || post.wallOwner.username === loggedUser.username">
-            <button class="btn btn-success" ng-click="addComment(post.id)">Add new comment</button>
+        <div class="text-left" ng-if="post.wallOwner.isFriend || post.wallOwner.username === loggedUser.username">
+            <button class="btn btn-success" ng-click="addComment(post.id)">Add comment</button>
         </div>
     </div>
 </div>
